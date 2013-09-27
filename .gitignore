@@ -1,0 +1,15 @@
+*.txt
+*.txt~
+*.swp
+*.swo
+*.sap
+*.swo
+*.~
+/application/config/config.php
+/application/config/database.php
+/uploads/
+/captcha/
+/build
+/Gruntfile.js
+/node_modules
+/package.json
