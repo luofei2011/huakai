@@ -1,0 +1,130 @@
+.wrapper {
+    height: 101%;
+}
+.grid-1004 {
+    width: 1004px;
+    margin: 0 auto;
+}
+.header-item {
+    background-color: #369;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 6px;
+}
+.header-item ul {
+    padding: 0 0 0 30px;
+}
+.header-item ul li {
+    text-align: center;
+    float: left;
+    margin: 0 10px;
+}
+.header-item ul li a {
+    padding: 12px 15px;
+    font-weight: bold;
+    color: #FFF;
+    font-size: 14px;
+    outline: none;
+    text-decoration: none;
+}
+.header-item ul li a:hover {
+    background-color: #99cccc;
+    color: #000 !important; 
+    text-decoration: none;
+}
+.header-item .search {
+    float: right;
+    margin-right: 10px;
+}
+.search form {
+    display: inline-block;
+}
+#keyword {
+    width: 160px;
+    height: 25px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    text-indent: 0.5em;
+}
+.search input {
+    vertical-align: middle;
+    border: none;
+    margin: 0;
+}
+.header-top {
+    display: inline-block;
+    width: 100%;
+}
+.logo {
+    height: 110px;
+    width: 620px;
+    float: left;
+}
+.banner {
+    width: 340px;
+    float: right;
+    text-align: right;
+}
+.b-top a, .b-top {
+    color: #333;
+    font-size: 14px;
+}
+.b-top, .b-bottom {
+    height: 55px;
+    line-height: 55px;
+}
+.b-top a {
+    margin: 0 10px;
+}
+.b-bottom {
+    height: 35px;
+    line-height: 35px;
+    font-size: 18px;
+}
+.photo-show {
+    height: 380px;
+    padding: 0 10px;
+    margin: 15px 0;
+    background-color: #f5f5f5;
+    position: relative;
+}
+.slidebar {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    text-align: right;
+}
+.slidebar a {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    display: inline-block;
+    text-align: center;
+    float: left;
+    text-decoration: none;
+    background: #000;
+    color: #fff;
+}
+.slidebar a.active {
+    background: #ff0000;
+}
+.intro-container {
+    height: 230px;
+    width: 100%;
+}
+.i-left, .i-right {
+    float: left;
+    height: 210px;
+    width: 49%;
+}
+.i-right {
+    float: right;
+}
+.intro-title {
+    font-size: 14px;
+}
+.intro-title hr {
+    border: 1px dashed #ddd;
+}
