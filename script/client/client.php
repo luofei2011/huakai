@@ -4,9 +4,10 @@
  * */
 set_time_limit(0);  
   
-$host = "192.168.17.61";  
+//$host = "192.168.17.61";  
+$host = "localhost";
 $port = "4444";  
-$msg = "Send messge";
+$msg = "192.168.17.61";
 $socket = socket_create(AF_INET, SOCK_STREAM, 0)or die("Could not create  socket\n"); 
    
 $connection = socket_connect($socket, $host, $port) or die("Could not connet server\n"); 

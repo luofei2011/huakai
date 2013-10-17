@@ -25,8 +25,16 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->view('common/header');
 		$this->load->view('index');
+		$this->load->view('common/footer');
 	}
+
+    public function publish() {
+        $this->load->view('common/header');
+		$this->load->view('admin/publish');
+		$this->load->view('common/footer');
+    }
 }
 
 /* End of file welcome.php */
