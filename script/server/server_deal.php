@@ -18,6 +18,8 @@ $result = socket_bind($socket, $host, $port) or die('Could not bind to socket\n'
 $result=socket_listen($socket) or die("Could not set up socket listener\n");  
 
 echo "Bindling the socket on $host:$port...\n";
+// 设置时区
+date_default_timezone_set("PRC");
 
 // 持续监听该端口的数据请求
 do {
@@ -39,12 +41,16 @@ do {
         echo "Received data: $input \n";
 
         if ($input == "S-BMS GPRS") {
+            echo "Client is connect at " . date("Y-m-d H:i:s") . "\n";
             $output = $isUpdate;
             socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");  
         } else if ($input == "END") {
+            // 客户端断开时间
             $output = "BYE\n";
             socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");  
         } else if ($input == "OK") {
+            // sleep 5秒等待can通信
+            sleep(5);
             $line += 1;
             $output = get_file_line($line);
             if ($output) {
@@ -60,8 +66,10 @@ do {
         } else if ($input == "BYE") {
             //$output = "END SOCKET";
             $isEnd = true;
+            echo "Client is disconnect!";
         }
     }
+    echo "Client is disconnect at " . date("Y-m-d H:i:s") . "\n";
     if ($isEnd) {
         socket_close($spawn);
     }
