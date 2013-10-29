@@ -12,6 +12,11 @@ $isEnd = false;
 $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP)or die("Could not create  socket\n"); 
    
 $connection = socket_connect($socket, $host, $port) or die("Could not connet server\n"); 
+
+// 每次异常退出之后都重传
+if (file_exists("update.s19"))
+    unlink("update.s19");
+
 socket_write($socket, $msg, strlen($msg)) or die("Write failed\n"); 
 
 while(true) {
@@ -26,6 +31,8 @@ while(true) {
             socket_write($socket, $output, strlen($output)) or die("Write failed\n"); 
         } else if ($buff == "BYE") {
             $isEnd = true;
+            // 传输完成或者没有更新的时候退出
+            break;
         } else if ($buff == "END") {
             $output = "BYE\n";
             socket_write($socket, $output, strlen($output)) or die("Write failed\n"); 
