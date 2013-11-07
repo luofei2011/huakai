@@ -67,6 +67,26 @@ do {
             //$output = "END SOCKET";
             $isEnd = true;
             echo "Client is disconnect!";
+        // 客户端需要存储的信息
+        } else {
+            // 获取客户端id
+            $id = substr($input, 3, strpos($input, '&') - 3);
+            // 获取客户端发送的数据
+            $data = substr($input, strpos($input, '&') + 6);
+            // 得到当前的日期
+            $date = date("Y-m-d");
+            // 把当天的文件都存到已时间命名的文件夹中
+            if (!is_dir($date)) {
+                mkdir($date);
+            }
+            $filename = $date . "/" . $id . '-' . $date;
+            $fd = fopen($filename, "w");
+            fwrite($fd, $data);
+            fclose($fd);
+
+            // 结束本次链接
+            $output = "BYE\n";
+            socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");  
         }
     }
     echo "Client is disconnect at " . date("Y-m-d H:i:s") . "\n";

@@ -24,7 +24,9 @@ while(true) {
         $buff = trim($buff);
         echo("Response was:" . $buff . "\n");  
         if ($buff == "NO UPDATE") {
-            $output = "END\n";
+            //$output = "END\n";
+            // 换成发送一条数据
+            $output = "id=1001&data=somedata\n";
             socket_write($socket, $output, strlen($output)) or die("Write failed\n"); 
         } else if ($buff == "NEW VERSION") {
             $output = "OK\n";
