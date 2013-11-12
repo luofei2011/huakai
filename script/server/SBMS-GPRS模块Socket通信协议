@@ -1,0 +1,35 @@
+S-BMS GPRS模块SOCKET通信协议
+
+
+=== BMS所有模块无更新时=====================================
+-> "S-BMS GPRS " + SIMID(15位IMEI) (GPRS模块每分钟与服务器连接一次，没有更新就发送此时的数据)
+<- "NO UPDATE"
+-> BATTERYDATA (客户端发送此时的BMS数据)
+<- "OK"/"ERROR" (服务器保存数据为文件，正常的话回复OK；客户端如果得到ERROR的话就重新发数据)
+-> "END"
+<- "BYE" (服务器，客户端断开连接)
+（下一分钟GPRS模块会重新连接，过程重复）
+========================================================
+
+
+=== BMS某个模块有更新时 =================================
+-> "S-BMS GPRS" + SIMID (GPRS模块每分钟与服务器连接一次)
+<- "NEW VERSION: " + 文件名
+-> "CODESIZE"
+<- "CODESIZE: " + codeSize
+-> "BLOCKSIZE"
+<- "BLOCKSIZE: " + 20
+-> "BLOCKNUM" 
+<- "BLOCKNUM: " + CODESIZE/32, 
+-> "OK"
+<- "L1S1" + ADDRESS + DATA
+-> "OK"/"ERROR"
+-> "L2S1" + ADDRESS + DATA
+...... ......
+. 服务端逐行发送S19文件(只要S1或S3开头的行)
+...... ......
+<- "OVER" (最后一行发送完毕之后，服务端发送OVER)
+-> "VALIDATE:" + 校验值 (客户端发送校验值) 
+<- "VALIDATE OK"/"VALIDATE ERROR" (服务端也计算校验值，比较校验值是否一致)
+-> "END" (如果校验失败，则客户端重新从CODESIZE那里开始发送数据请求)
+<- "BYE" (更新成功之后，服务器同时删除更新的文件，客户端断开连接)
