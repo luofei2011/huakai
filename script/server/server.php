@@ -1,6 +1,6 @@
 <?php
-// $host = "192.168.17.61";
-$host = "apms.hit.edu.cn";
+$host = "localhost";
+//$host = "apms.hit.edu.cn";
 $port = "10080";
 // 参数初始化
 $clientID = "";
@@ -53,99 +53,116 @@ do {
     echo "Reading Client data......\n";
     // 读取客户端数据
     while ($input = socket_read($spawn, 1024)) {
-    	// 判断是否有更新(因为服务器端的脚本会一直运行，因此客户端每次连接时都要判断更新文件是否存在)
-	if (file_exists("file/BCU.s19")) {
-	    //TODO: 改为判断是否存在.s19文件，读取其文件名并发送给客户端，让客户端是知道是更新BMS的哪个部分，如BCU， BMU...
-	    echo "NEW VERSION\n"; // + 文件名
-	    //$isUpdate = "NEW VERSION\n"; //+文件名
-	    $isUpdate = "NEW VERSION BCU\n";
-	} else {
-	    echo "NO UPDATE\n";
-	    $isUpdate = "NO UPDATE\n";
-    	}
-	// 格式化输入的数据
-	$input = str_replace("\n", "", $input);
-	echo "Received data: $input \n";
-	if (substr($input, 0, 10) == "S-BMS GPRS") {
-	    echo "Client is connect at " . date("Y-m-d H:i:s") . "\n";
-	    // 将SIM卡的唯一ID存为客户端ID，以便识别是哪辆车发送的数据
-	    $clientID = substr($input, 12, 27);
-	    $output = $isUpdate;
-	    socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
-        } else if (substr($input, 0, 3) == "END") {
-            $output = "BYE\n";
-	    //TODO: 此时如果存在更新文件，则要将其删除
-            socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
-            $isEnd = true;
-	    echo "Client is disconnect!";
-        } else if (substr($input, 0, 8) == "CODESIZE") {
-	    // 行数首先归0；因为如果校验失败，则重头开始传
-	    $line = 0;
-	    $codesize = count(AnalyzerFile("file/BCU.s19"));
-	    $output = "CODESIZE: " + $codesize;
-            socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
-	} else if (substr($input, 0, 9) == "BLOCKSIZE") {
- 	    $output = "BLOCKSIZE: " + $blocksize;
-	    socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
-	} else if (substr($input, 0, 8) == "BLOCKNUM") {
-	    if($codesize%32 == 0) {
-		$blocknum = intval($codesize%32);
-	    } else {
-		$blocknum = intval($codesize%32) + 1;
-            }
-	    $output = "BLOCKNUM: " + $blocknum;
-	    socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
-	} else if (substr($input, 0, 2) == "OK") {
-            // Sleep2秒等待can通信
-            sleep(2);
-            $line += 1;
-            $s19data = get_file_line($line);
-            if ($s19data) {
-		//每行只发address+data
-		if(substr($s19data, 0, 2) == "S3") { //判断是S1开头还是S3开头
-		     //去掉前10位、后2位
-		     $s19data = substr($s19data, 11, -2);
-                     //TODO 将data存入校验数组
-		     $output = "L".$line."S3".$s19data;
-		} else {
-		     //去掉前8位、后2位
-		     $s19data = substr($s19data, 9, -2);
-		     //TODO 将data存入校验数组
-		     $output = "L".$line."S1".$s19data;
+        // 判断是否有更新(因为服务器端的脚本会一直运行，因此客户端每次连接时都要判断更新文件是否存在)
+        if ($df = opendir("../file/")) {
+            while(($f = readdir($df)) !== false) {
+                if ($f != "." && $f != "..") {
+                    $fExt = end(explode(".", $f));
+                    // 针对是否重复更新的问题,可以把已更新的文件ID和更新文件时间模块等绑定
+                    if ($fExt== "s19") {
+                        $fLen = strpos($f, ".");
+                        $fName = substr($f, 0, $fLen);
+
+                        // 有文件需要更新
+                        echo "NEW VERSION " . $fName . "\n";
+                        $isUpdate = "NEW VERSION " . $fName . "\n";
+
+                        // 每次只更新一个文件,因此当遇到一个文件以后就退出当前循
+                        // 环
+                        break;
+                    }
                 }
-                socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");
-            } else {
-                $output = "OVER\n"; //发送完毕
-                socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");
             }
+            if (!$fName) {
+                echo "NO UPDATE\n";
+                $isUpdate = "NO UPDATE\n";
+            }
+            closedir($df);
+        }
+        // 格式化输入的数据
+        $input = str_replace("\n", "", $input);
+        echo "Received data: $input \n";
+        if (substr($input, 0, 10) == "S-BMS GPRS") {
+            echo "Client is connect at " . date("Y-m-d H:i:s") . "\n";
+            // 将SIM卡的唯一ID存为客户端ID，以便识别是哪辆车发送的数据
+            $clientID = substr($input, 11, 27);
+            echo "Client ID is: " . $clientID . "\n";
+            $output = $isUpdate;
+            socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
+        } else if (substr($input, 0, 3) == "END") {
+                $output = "BYE\n";
+                //TODO: 此时如果存在更新文件，则要将其删除
+                socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
+                $isEnd = true;
+                echo "Client is disconnect!\n";
+        } else if (substr($input, 0, 8) == "CODESIZE") {
+            // 行数首先归0；因为如果校验失败，则重头开始传
+            $line = 0;
+            $codesize = count(AnalyzerFile("../file/" . $fName . ".s19"));
+            $output = "CODESIZE: " . $codesize . "\n";
+            socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
+        } else if (substr($input, 0, 9) == "BLOCKSIZE") {
+            $output = "BLOCKSIZE: " . $blocksize . "\n";
+            socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
+        } else if (substr($input, 0, 8) == "BLOCKNUM") {
+            if($codesize%32 == 0) {
+                $blocknum = intval($codesize%32);
+            } else {
+                $blocknum = intval($codesize%32) + 1;
+            }
+            $output = "BLOCKNUM: " . $blocknum . "\n";
+            socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
+        } else if (substr($input, 0, 2) == "OK") {
+                // Sleep2秒等待can通信
+                sleep(2);
+                $line += 1;
+                $s19data = get_file_line($fName, $line);
+                if ($s19data) {
+                    //每行只发address+data
+                    if(substr($s19data, 0, 2) == "S3") { //判断是S1开头还是S3开头
+                        //去掉前10位、后2位
+                        $s19data = substr($s19data, 11, -2);
+                        //TODO 将data存入校验数组
+                        $output = "L" . $line . "S3" . $s19data . "\n";
+                    } else {
+                        //去掉前8位、后2位
+                        $s19data = substr($s19data, 9, -2);
+                        //TODO 将data存入校验数组
+                        $output = "L" . $line . "S1" . $s19data . "\n";
+                    }
+                    socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");
+                } else {
+                    $output = "OVER\n"; //发送完毕
+                    socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");
+                }
         } else if ($input == "ERROR") { //客户端暂时不会回复ERROR
-            // 断点续传
-            //$output = get_file_line($line);
-            //socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
+                // 断点续传
+                //$output = get_file_line($line);
+                //socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
         } else if (substr($input, 0, 8) == "VALIDATE") {
-	    //TODO 稍后增加校验算法，对比校验值
-	    $output = "VALIDATE OK\n";
-	    socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
-	} else {
+            //TODO 稍后增加校验算法，对比校验值
+            $output = "VALIDATE OK\n";
+            socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
+        } else {
             // 得到当前的日期
             $date = date("Y-m-d");
             // 把当天的文件都存到已时间命名的文件夹中
             if (!is_dir($date)) {
-            	mkdir($date);
+                mkdir($date);
             }
             $filename = $date . "/" . $clientID . '-' . $date;
             $fd = fopen($filename, "a");
-	    // 将收到的数据写入文件
+            // 将收到的数据写入文件
             fwrite($fd, $input."\n");
             fclose($fd);
             // 结束本次链接
             $output = "OK\n";
             socket_write($spawn,$output,strlen($output)) or die("Could not write output"."\n");
-	}
+        }
     }
     echo "Client is disconnect at " . date("Y-m-d H:i:s") . "\n";
     if ($isEnd) {
-	// 关闭当前连接
+        // 关闭当前连接
         socket_close($spawn);
     }
 } while(true);
@@ -155,9 +172,9 @@ socket_close($socket);
 /**
  * 读取S19文件任意一行
  */
-function get_file_line($line_num){
+function get_file_line($f, $line_num){
     $n = 0;
-    $handle = fopen("file/BCU.s19", "r");
+    $handle = fopen("../file/" . $f . ".s19", "r");
     if ($handle) {
         while (!feof($handle)) {
             ++$n;
@@ -281,8 +298,7 @@ function AnalyzerFile($filename) {
         if ($rd["_Type"] == "S1" || $rd["_Type"] == "S2" || $rd["_Type"] == "S3") {
             if ($rd['_Address'] == 0xffb0) {
             }
-            if ((($rd['_Address'] < $AddressLimitMax) && ($rd['_Address'] > $AddressLimitMin)) 
-		|| (($rd['_Address'] < $AddrXEPUnpageMax) && ($rd['_Address'] > $AddrXEPUnpageMin))) {
+            if ((($rd['_Address'] < $AddressLimitMax) && ($rd['_Address'] > $AddressLimitMin)) || (($rd['_Address'] < $AddrXEPUnpageMax) && ($rd['_Address'] > $AddrXEPUnpageMin))) {
                 array_push($s1s2s3_data, $rd);
                 $count = 0;
                 foreach($rd['_Data'] as $d) {

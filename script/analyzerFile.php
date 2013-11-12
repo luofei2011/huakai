@@ -142,7 +142,8 @@ function AnalyzerFile($filename) {
             }
         }
     }
-    print_r($tmp_bin_data);
+    return $tmp_bin_data;
 }
-AnalyzerFile("file/update.s19");
+$arr = AnalyzerFile("file/MCU.s19");
+echo count($arr);
 ?>
