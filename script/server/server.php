@@ -54,31 +54,6 @@ do {
     // 读取客户端数据
     while ($input = socket_read($spawn, 1024)) {
         // 判断是否有更新(因为服务器端的脚本会一直运行，因此客户端每次连接时都要判断更新文件是否存在)
-        if ($df = opendir("../file/")) {
-            while(($f = readdir($df)) !== false) {
-                if ($f != "." && $f != "..") {
-                    $fExt = end(explode(".", $f));
-                    // 针对是否重复更新的问题,可以把已更新的文件ID和更新文件时间模块等绑定
-                    if ($fExt== "s19") {
-                        $fLen = strpos($f, ".");
-                        $fName = substr($f, 0, $fLen);
-
-                        // 有文件需要更新
-                        echo "NEW VERSION " . $fName . "\n";
-                        $isUpdate = "NEW VERSION " . $fName . "\n";
-
-                        // 每次只更新一个文件,因此当遇到一个文件以后就退出当前循
-                        // 环
-                        break;
-                    }
-                }
-            }
-            if (!$fName) {
-                echo "NO UPDATE\n";
-                $isUpdate = "NO UPDATE\n";
-            }
-            closedir($df);
-        }
         // 格式化输入的数据
         $input = str_replace("\n", "", $input);
         echo "Received data: $input \n";
@@ -87,12 +62,41 @@ do {
             // 将SIM卡的唯一ID存为客户端ID，以便识别是哪辆车发送的数据
             $clientID = substr($input, 11, 27);
             echo "Client ID is: " . $clientID . "\n";
+
+            // TODO 考虑以后把该地方抽成一个函数，只在收到S-BMS GPRS时进行调用
+            if ($df = opendir("../file/")) {
+                while(($f = readdir($df)) !== false) {
+                    if ($f != "." && $f != "..") {
+                        $fExt = end(explode(".", $f));
+                        $fLen = strpos($f, ".");
+                        $fName = substr($f, 0, $fLen);
+                        // 针对是否重复更新的问题,可以把已更新的文件ID和更新文件时间模块等绑定
+                        // 针对更新补重复问题，建议每次更新的时候文件名上追加版本号！！！
+                        if ($fExt== "s19" && !find_id_is_updated($clientID, $fName)) {
+                            // 有文件需要更新
+                            echo "NEW VERSION " . $fName . "\n";
+                            $isUpdate = "NEW VERSION " . $fName . "\n";
+
+                            // 每次只更新一个文件,因此当遇到一个文件以后就退出当前循
+                            // 环
+                            break;
+                        }
+                    }
+                }
+                if (!$fName) {
+                    echo "NO UPDATE\n";
+                    $isUpdate = "NO UPDATE\n";
+                }
+                closedir($df);
+            }
             $output = $isUpdate;
             socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
         } else if (substr($input, 0, 3) == "END") {
                 $output = "BYE\n";
-                //TODO: 此时如果存在更新文件，则要将其删除
+                // TODO 暂时存为文件，后面更新为数据库(可先制定好数据库的格式)
                 socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
+                // 存入updated_file中, 已id做索引可减少遍历的次数
+                store_content_into_file("updated_file", $clientID . " " . $fName . "\n");
                 $isEnd = true;
                 echo "Client is disconnect!\n";
         } else if (substr($input, 0, 8) == "CODESIZE") {
@@ -168,6 +172,37 @@ do {
 } while(true);
 // 关闭Socket连接
 socket_close($socket);
+
+/*
+ * 存文件操作
+ * */
+function store_content_into_file($f, $content) {
+    $fd = fopen($f, 'a');
+    // 自己管理是否添加换行等功能
+    fwrite($fd, $content);
+    fclose($fd);
+}
+
+/*
+ * 到updated_fle文件中查找当前id的指定文件是否已经更新
+ * */
+function find_id_is_updated($id, $name) {
+    $fd = fopen("updated_file", "r");
+    // 得到当前已经更新了的客户端信息和文件信息，文件一定要追加版本号
+    $updated = fread($fd, filesize("updated_file"));
+    // 根据存储的格式进行分割处理
+    $arr = explode("\n", $updated);
+    foreach($arr as $item) {
+        $msg = explode(" ", $item);
+        // 完全匹配的情况下说明当前文件对于这个id来说是已经更新过后的！
+        if ($msg[0] == $id && $msg[1] == $name) {
+            fclose($fd);
+            return true;
+        }
+    }
+    fclose($fd);
+    return false;
+}
 
 /**
  * 读取S19文件任意一行

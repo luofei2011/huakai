@@ -55,7 +55,8 @@ while(true) {
         } else if ($buff == "BYE") {
             $isEnd = true;
             // 传输完成或者没有更新的时候退出
-            break;
+            //break;
+            sleep(60);
         } else {
             if ($buff) {
                 $err = append_to_update_file($updateFileName, $buff);
