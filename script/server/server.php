@@ -128,13 +128,14 @@ do {
                         $s19data = substr($s19data, 11, -2);
                         //TODO 将data存入校验数组
                         $output = "L" . $line . "S3" . $s19data . "\n";
+                        socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");
                     } else {
                         //去掉前8位、后2位
                         $s19data = substr($s19data, 9, -2);
                         //TODO 将data存入校验数组
                         $output = "L" . $line . "S1" . $s19data . "\n";
+                        socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");
                     }
-                    socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");
                 } else {
                     $output = "OVER\n"; //发送完毕
                     socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");
