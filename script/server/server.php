@@ -258,6 +258,7 @@ function AnalyzerFile($filename) {
             foreach($s_data_string_sub as $str) {
                 $temp_data = $str;
                 $aw = 0;
+                $isContinue = false;
                 switch($temp_data[1]) {
                     case '0':
                         $aw = 2;
@@ -277,30 +278,40 @@ function AnalyzerFile($filename) {
                         break;
                     case "4":
                         $s_data[$i]['_Type'] = "S4";
+                        $isContinue = true;
                         break;
                     case "5":
                         $s_data[$i]['_Type'] = "S5";
+                        $isContinue = true;
                         break;
                     case "6":
                         $s_data[$i]['_Type'] = "S6";
+                        $isContinue = true;
                         break;
                     case "7":
                         $aw = 4;
+                        $isContinue = true;
                         $s_data[$i]['_Type'] = "S7";
                         break;
                     case "8":
                         $aw = 3;
+                        $isContinue = true;
                         $s_data[$i]['_Type'] = "S8";
                         break;
                     case "9":
                         $aw = 2;
+                        $isContinue = true;
                         $s_data[$i]['_Type'] = "S9";
                         break;
                     case "\0":
+                        $isContinue = true;
                         break;
                     default:
+                        $isContinue = true;
                         break;
                 }
+                if ($isContinue)
+                    continue;
                 //endregion
                 // 把地址转换成十进制
                 $s_data[$i]['_Count'] = hexdec(substr($temp_data, 2, 2));
