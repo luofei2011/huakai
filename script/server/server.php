@@ -126,15 +126,19 @@ do {
                     if(substr($s19data, 0, 2) == "S3") { //判断是S1开头还是S3开头
                         //去掉前10位、后2位
                         $s19data = substr($s19data, 11, -2);
-                        //TODO 将data存入校验数组
                         $output = "L" . $line . "S3" . $s19data . "\n";
                         socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");
+
+                        // 将data存入校验数组
+                        array_push($validateArray, validate_data_sum($s19data));
                     } else {
                         //去掉前8位、后2位
                         $s19data = substr($s19data, 9, -2);
-                        //TODO 将data存入校验数组
                         $output = "L" . $line . "S1" . $s19data . "\n";
                         socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");
+
+                        // 将data存入校验数组
+                        array_push($validateArray, validate_data_sum($s19data));
                     }
                 } else {
                     $output = "OVER\n"; //发送完毕
@@ -145,8 +149,12 @@ do {
                 //$output = get_file_line($line);
                 //socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
         } else if (substr($input, 0, 8) == "VALIDATE") {
-            //TODO 稍后增加校验算法，对比校验值
-            $output = "VALIDATE OK\n";
+            // 客户端传来的验证总和
+            $transfferDataSum = hexdec(substr($input, 9, strlen($input) - 9));
+            // 服务器记录的传输总和
+            $validateDataSum = array_sum($validateArray);
+            // 二者进行数据校验
+            $output = ($transfferDataSum == $validateDataSum) ? "VALIDATE OK\n" : "VALIDATE ERROR\n";
             socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
         } else {
             // 得到当前的日期
@@ -173,6 +181,21 @@ do {
 } while(true);
 // 关闭Socket连接
 socket_close($socket);
+
+/*
+ * 校验函数
+ * @param {String} $str 需要计算的十六进制字符串
+ * @return {Number} $sum  计算后得到的十进制和
+ * */
+function validate_data_sum($str) {
+    $i = 0;
+    $sum = 0;
+    for (; $len = strlen($str), $i < $len;) {
+        $sum += hexdec($str[$i]);
+        $i += 1;
+    }
+    return $sum;
+}
 
 /*
  * 存文件操作
