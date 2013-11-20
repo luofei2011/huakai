@@ -73,6 +73,11 @@ input.date {
     background-color: #428bca;
     border-color: #357ebd;
 }
+.b-btn-primary:hover {
+    color: #fff;
+    background-color: #3276b1;
+    border-color: #285e8e;
+}
 </style>
 <div class="select-arr">
     <span class="select-label">
