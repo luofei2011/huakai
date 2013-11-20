@@ -1,4 +1,5 @@
 <div class="photo-show">
+	<img class="photo-1" src="<?php echo base_url('static/img/3.jpg');?>">
     <div class="slidebar">
         <a href="javascript:void(0);" class="active">1</a>
         <a href="javascript:void(0);">2</a>

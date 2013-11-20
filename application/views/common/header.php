@@ -12,7 +12,7 @@
         <div class="header">
             <div class="header-top">
                 <div class="logo">
-                    <img src="" alt="华凯" />
+                    <img src="<?php echo base_url('static/img/logo.png');?>" alt="华凯" />
                 </div>
                 <div class="banner">
                     <div class="b-top">

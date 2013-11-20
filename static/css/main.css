@@ -92,11 +92,16 @@
     margin-right: 5px;
 }
 .photo-show {
+	/*background: url('../img/2.jpg');*/
     height: 380px;
     padding: 0 10px;
     margin: 15px 0;
     background-color: #f5f5f5;
     position: relative;
+}
+.photo-show img {
+	width: 1004px;
+	height: 380px;
 }
 .slidebar {
     position: absolute;
