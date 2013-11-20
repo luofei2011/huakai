@@ -1,26 +1,26 @@
-## JpGraph安装
+#### JpGraph安装
 
-1. 去官网下载最新版本的源码[jpgraph-3.5.0b1.tar.gz](http://jpgraph.net/download/)
+1.去官网下载最新版本的源码[jpgraph-3.5.0b1.tar.gz](http://jpgraph.net/download/)
 
-2. 解压缩到任意目录
+2.解压缩到任意目录
 
     tar -zxvf jpgraph-3.5.0b1.tar.gz  # 我的安装在/home/luofei02/(即～/)目录下
     mv jpgraph-3.5.0b1 jpgraph
 
-3. 修改apache配置文件`php.ini`
+3.修改apache配置文件`php.ini`
 
     1. 启动GD库支持
 
     2. 修改include_path为以上jpgraph的解压缩目录, 如：/home/luofei02/jpgraph/
 
-4. 重启Apache服务器
+4.重启Apache服务器
 
     # 我的是lampp
     /opt/lampp/lampp restart
 
-## 使用
+#### 使用
 
-1. 在`www`或者`htdocs`目录夏新建一个jpgraph.php文件，内容如下：
+1.在`www`或者`htdocs`目录夏新建一个jpgraph.php文件，内容如下：
 
     <?php // content="text/plain; charset=utf-8"
     require_once ('src/jpgraph.php');
@@ -61,10 +61,10 @@
     $graph->Stroke();
     ?>
 
-2. 访问查看效果：[localhost/jpgraph.php](localhost/jpgraph.php)
+2.访问查看效果：[localhost/jpgraph.php](http://localhost/jpgraph.php)
 
-## 解决中文乱码
+#### 解决中文乱码
 
-1. 网上下载`simhei.ttf`以及`simsun.ttc`字体
+1.网上下载`simhei.ttf`以及`simsun.ttc`字体
 
-2. 把以上字体放到`/usr/share/fonts/truetype/`下即可！
+2.把以上字体放到`/usr/share/fonts/truetype/`下即可！
