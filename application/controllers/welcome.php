@@ -18,13 +18,12 @@ class Welcome extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 
-    public function __construct(){
+    public function __construct() {
         parent::__construct();
         $this->load->helper('url');
     }
 
-	public function index()
-	{
+	public function index() {
 		$this->load->view('common/header');
 		$this->load->view('index');
 		$this->load->view('common/footer');
@@ -33,6 +32,13 @@ class Welcome extends CI_Controller {
     public function publish() {
         $this->load->view('common/header');
 		$this->load->view('admin/publish');
+		$this->load->view('common/footer');
+    }
+
+    public function battery() {
+        $this->load->view('common/header');
+        $this->load->view('common/jpgraph');
+        $this->load->view('common/battery');
 		$this->load->view('common/footer');
     }
 }

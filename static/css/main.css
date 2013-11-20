@@ -82,6 +82,15 @@
     line-height: 35px;
     font-size: 18px;
 }
+.b-bottom .b-user {
+    font-size: 14px;
+    color: #00c;
+}
+.b-bottom a {
+    color: #00c;
+    margin-left: 5px;
+    margin-right: 5px;
+}
 .photo-show {
     height: 380px;
     padding: 0 10px;

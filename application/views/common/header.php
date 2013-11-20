@@ -20,7 +20,11 @@
                         <a href="#">EngLish</a>
                     </div>
                     <div class="b-bottom">
-                        客户服务电话: 400-168-0234
+                        <span>客户服务电话: 400-168-0234</span>
+                        <span class="b-user">
+                            <a href="welcome/battery" target="_blank">登录</a>|
+                            <a href="#">注册</a>
+                        </span>
                     </div>
                 </div>
             </div>
