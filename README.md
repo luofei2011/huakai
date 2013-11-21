@@ -68,3 +68,16 @@
 1.网上下载`simhei.ttf`以及`simsun.ttc`字体
 
 2.把以上字体放到`/usr/share/fonts/truetype/`下即可！
+
+#### 2013-11-21日更新
+
+1.判断当前车辆是否已经更新过文件添加了数据库支持
+
+    # 数据库名字
+    huakai
+    # 表名
+    update_info
+    # 需要修改`db_config.php`文件下的数据库连接信息
+    vi huakai/script/server/db_config.php
+
+2.优化服务器脚本log的显示方式
