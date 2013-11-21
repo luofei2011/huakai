@@ -71,13 +71,25 @@
 
 #### 2013-11-21日更新
 
-1.判断当前车辆是否已经更新过文件添加了数据库支持
+1.创建数据库及表
 
     # 数据库名字
     huakai
     # 表名
     update_info
+    # 表的字段
+    id # 记录id,无特别含义,自动增加!
+    cid # 车辆SIM号, 特有的id, 设置为VARCHAR(20), 非空.
+    version # 当前车辆的更新文件信息, 设置为VARCHAR(50), 非空.
+
+2.使用数据库
+
     # 需要修改`db_config.php`文件下的数据库连接信息
     vi huakai/script/server/db_config.php
 
-2.优化服务器脚本log的显示方式
+3.优化服务器脚本log的显示方式
+
+    [LOG] ...
+    [INFO] ...
+    [WARN] ...
+    [ERROR] ...
