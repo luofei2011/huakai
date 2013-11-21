@@ -1,4 +1,4 @@
-S-BMS GPRS模块SOCKET通信协议 V1.0
+S-BMS GPRS模块SOCKET通信协议 V1.2
 
 哈尔滨华凯电能科技有限公司
 
@@ -21,30 +21,25 @@ S-BMS GPRS模块SOCKET通信协议 V1.0
 
 === BMS某个模块有更新时 ===================================================================
 -> "S-BMS GPRS" + SIMID (GPRS模块每分钟与服务器连接一次)
-<- "NEW VERSION: " + BCU/BMU （服务器判断是否更新BMU、BCU；存在更新时回复NEW VERSION + 模块名称）
+<- "NEW VERSION: " + BCU/BMU （服务器判断是否更新BMU、BCU；存在更新时回复NEW VERSION + 待更新模块名）
 -> "CODESIZE"
-<- "CODESIZE:" + 32 *（S19文件以S1、S3开头的行数）
+<- "CODESIZE:" + count($tmp_bin_data)
 -> "BLOCKSIZE"
 <- "BLOCKSIZE:" 32
--> "BLOCKNUM" 
-<- "BLOCKNUM:" + s19文件以S1、S3开头的行数
+-> "BLOCKNUM"
+<- "BLOCKNUM:" CODESIZE/32(能整除时) || CODESIZE/32 + 1 (不能整除时) 
 -> "OK"
 <- "L0001A00000000DFFFFFFF.....FF" （行数L不足4位，前面加0；地址A不足8位，前面加0；数据D不足64位，后面加F补齐）
 -> "OK"
 <- "L0002A00000020DFFFFFFF.....FF"
-...... ......
-. 服务端逐行发送S19文件(只要S1或S3开头的行)
-...... ......
-<- "OVER" (最后一行发送完毕之后，服务端发送OVER)
-->"STARTADDRESS"
-<-"STARTADDRESS:" + startAddress
-->"ENDADDRESS"
-<-"ENDADDRESS:" + endAddress
--> "VALIDATE:" + 校验值 (客户端发送校验值) 
+-> "OK"
+...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......
+服务器逐条发送S19文件 (只要S1，S3开头的行，且该行的地址应在0x1900~0xbdff之内)
+...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......
+<- "OVER" (最后一行发送完毕之后，服务器发送OVER)
+-> "VALIDATE:" + 校验值 (客户端发送校验值，即$tmp_bin_data中所有数据的求和后转换成十六进制)
 <- "VALIDATE OK"/"VALIDATE ERROR" (服务端也计算校验值，比较校验值是否一致)
 -> "END" (如果校验失败，则客户端重新从CODESIZE那里开始发送数据请求)
 <- "BYE" (更新成功之后，服务端将更新信息储存至数据库，客户端断开连接)
 ===========================================================================================
-
-
 

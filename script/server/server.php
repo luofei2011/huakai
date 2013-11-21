@@ -1,6 +1,6 @@
 <?php
-$host = "localhost";
-//$host = "apms.hit.edu.cn";
+//$host = "localhost";
+$host = "apms.hit.edu.cn";
 $port = "10080";
 // 参数初始化
 $clientID = "";
@@ -11,14 +11,14 @@ $isEnd = false;
 $line = 0;
 // BootLoader所需的codeSize, blockSize, blockNumber
 $codesize = 0;
-$blocksize = 20;
+$blocksize = 32;
 $blocknum = 0;
-// 校验数组
-$validateArray = array();
+// 校验值
+$checksum = 0;
 // 计算s19文件codeSize所需的数据
 //==============================================
 $MCUAddressLimit = array(
-    "DZ60_MAX" => 0xffff,
+    "DZ60_MAX" => 0xbdff,
     "DZ60_MIN" => 0x1900,
     "XEP100_UNPAGE_MAX" => 0xFFFF,
     "XEP100_UNPAGE_MIN" => 0xC000,
@@ -35,14 +35,15 @@ $AddrXEPUnpageMin = 0xC000;
 
 set_time_limit(0);
 ob_implicit_flush();
+//setsockopt(listenfd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(&opt));
 // 创建Socket连接
 $socket = socket_create(AF_INET, SOCK_STREAM, 0) or die("Could not create socket!\n");
 // 绑定主机和端口
 $binding = socket_bind($socket, $host, $port) or die("Could not bind to socket!\n");
-echo "Binding the socket on $host:$port.\n";
+echo "Binding the socket on $host:$port......\n";
 // 开始监听
 $listening = socket_listen($socket, 5) or die("Could not set up socket listener!\n");
-echo "Start listening on $host:$port.\n";
+echo "Start listening on $host:$port......\n";
 // 设置时区
 date_default_timezone_set("PRC");
 
@@ -62,7 +63,6 @@ do {
             // 将SIM卡的唯一ID存为客户端ID，以便识别是哪辆车发送的数据
             $clientID = substr($input, 11, 27);
             echo "Client ID is: " . $clientID . "\n";
-
             // TODO 考虑以后把该地方抽成一个函数，只在收到S-BMS GPRS时进行调用
             if ($df = opendir("../file/")) {
                 while(($f = readdir($df)) !== false) {
@@ -76,9 +76,7 @@ do {
                             // 有文件需要更新
                             echo "NEW VERSION " . $fName . "\n";
                             $isUpdate = "NEW VERSION " . $fName . "\n";
-
-                            // 每次只更新一个文件,因此当遇到一个文件以后就退出当前循
-                            // 环
+                            // 每次只更新一个文件,因此当遇到一个文件以后就退出当前循环
                             break;
                         }
                     }
@@ -103,43 +101,72 @@ do {
             // 行数首先归0；因为如果校验失败，则重头开始传
             $line = 0;
             $codesize = count(AnalyzerFile("../file/" . $fName . ".s19"));
-            $output = "CODESIZE: " . $codesize . "\n";
+	    $codesize = create_codesize($codesize);
+            $output = "CODESIZE:" . $codesize . "\n";
+	    echo $output;
             socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
         } else if (substr($input, 0, 9) == "BLOCKSIZE") {
-            $output = "BLOCKSIZE: " . $blocksize . "\n";
+            $output = "BLOCKSIZE:" . $blocksize . "\n";
+            echo $output;
             socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
         } else if (substr($input, 0, 8) == "BLOCKNUM") {
             if($codesize%32 == 0) {
-                $blocknum = intval($codesize%32);
+                $blocknum = intval($codesize/32);
             } else {
-                $blocknum = intval($codesize%32) + 1;
+                $blocknum = intval($codesize/32) + 1;
             }
-            $output = "BLOCKNUM: " . $blocknum . "\n";
+	    $blocknum = create_blocknum($blocknum);
+            $output = "BLOCKNUM:" . $blocknum . "\n";
+            echo $output;
             socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
         } else if (substr($input, 0, 2) == "OK") {
                 // Sleep2秒等待can通信
                 sleep(2);
                 $line += 1;
-                $s19data = get_file_line($fName, $line);
-                if ($s19data) {
-                    //每行只发address+data
-                    if(substr($s19data, 0, 2) == "S3") { //判断是S1开头还是S3开头
-                        //去掉前10位、后2位
-                        $s19data = substr($s19data, 11, -2);
-                        $output = "L" . $line . "S3" . $s19data . "\n";
-                        socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");
-
-                        // 将data存入校验数组
-                        array_push($validateArray, validate_data_sum($s19data));
-                    } else {
-                        //去掉前8位、后2位
-                        $s19data = substr($s19data, 9, -2);
-                        $output = "L" . $line . "S1" . $s19data . "\n";
-                        socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");
-
-                        // 将data存入校验数组
-                        array_push($validateArray, validate_data_sum($s19data));
-                    }
+                $linedata = get_file_line($fName, $line);
+                if ($linedata) {
+                    //每行只发address+data, 不足32位以FF补齐
+		    $type = substr($linedata, 0, 2);
+                    if($type == "S1") { //判断是S1开头还是S3开头
+			$address = substr($linedata, 4, 4); //S1开头,地址4位
+			$data_length = hexdec(substr($linedata, 2, 2) - 3) * 2;
+			$data = substr($linedata, 8, $data_length);
+			if(substr($address, 0, 2) == "FF") { //地址以FF开头的不要
+			    $output = "USELESS" . "\n";
+			    echo $output;
+                            socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");   
+			} else {
+			    if($data_length < 64) { //不足64位的以FF补齐
+				for($i=0; $i<(64-$data_length); $i++) {
+				    $data = $data."F";
+				}
+				for($j=0;$j<(64-$data_length)/2; $j++) { //校验值加FF
+				    $checksum += hexdec("FF");
+				}						
+			    }
+			    $line = create_line_number($line);	
+			    $address = create_address($address);	    
+			    $output = "L".$line."A".$address."D".$data."\n";
+			    echo $output;
+                            socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");  
+			}                
+                    } else if ($type == "S2"){
+			$address = substr($linedata, 4, 6); //S2开头,地址6位
+                       	$data_length = hexdec(substr($linedata, 2, 2) - 4) * 2;
+                        $output = "L".$line."A".$address."D".$data."\n";
+		  	echo $output;
+                        socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");		
+                    } else if ($type == "S3"){
+			$address = substr($linedata, 4, 8); //S3开头,地址8位
+                       	$data_length = hexdec(substr($linedata, 2, 2) - 5) * 2;
+                        $output = "L".$line."A".$address."D".$data."\n";
+		   	echo $output;
+                        socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");				
+		    } else {
+			$output = "USELESS" . "\n";
+			echo $output;
+			socket_write($spawn,$output,strlen($output)) or die("Could not write output\n"); 
+		    }
                 } else {
                     $output = "OVER\n"; //发送完毕
                     socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");
@@ -150,11 +177,13 @@ do {
                 //socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
         } else if (substr($input, 0, 8) == "VALIDATE") {
             // 客户端传来的验证总和
-            $transfferDataSum = hexdec(substr($input, 9, strlen($input) - 9));
-            // 服务器记录的传输总和
-            $validateDataSum = array_sum($validateArray);
-            // 二者进行数据校验
-            $output = ($transfferDataSum == $validateDataSum) ? "VALIDATE OK\n" : "VALIDATE ERROR\n";
+            $client_checksum = substr($input, 9, strlen($input) - 9);
+	    echo "CLIENT CHECKSUM:". $client_checksum ."\n";
+	    $checksum = dechex($checksum%65536);
+	    echo "SERVER CHECKSUM:". $checksum ."\n";
+            // 与本地checksum校验值比较
+            $output = ($client_checksum == $checksum) ? "VALIDATE OK\n" : "VALIDATE ERROR\n";
+	    echo $output;
             socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
         } else {
             // 得到当前的日期
@@ -182,24 +211,85 @@ do {
 // 关闭Socket连接
 socket_close($socket);
 
-/*
- * 校验函数
- * @param {String} $str 需要计算的十六进制字符串
- * @return {Number} $sum  计算后得到的十进制和
- * */
-function validate_data_sum($str) {
-    $i = 0;
-    $sum = 0;
-    for (; $len = strlen($str), $i < $len;) {
-        $sum += hexdec($str[$i]);
-        $i += 1;
+/**
+ * codesize补足6位
+ */
+function create_codesize($codesize){
+    switch (strlen($codesize)) {
+	case 1:
+	    $codesize = "00000".$codesize;
+	    break;
+	case 2:
+	    $codesize = "0000".$codesize;
+	    break;
+	case 3:
+	    $codesize = "000".$codesize;
+	    break;
+	case 4:
+	   $codesize = "00".$codesize;
+	    break;
+	case 5:
+	   $codesize = "0".$codesize;
+	   break;
     }
-    return $sum;
+    return $codesize;
 }
 
-/*
+/**
+ * blocknum补足4位
+ */
+function create_blocknum($blocknum){
+    switch (strlen($blocknum)) {
+	case 1:
+	    $blocknum = "000".$blocknum;
+	    break;
+	case 2:
+	    $blocknum = "00".$blocknum;
+	    break;
+	case 3:
+	    $blocknum = "0".$blocknum;
+	    break;
+    }
+    return $blocknum;
+}
+
+/**
+ * 行数补足4位
+ */
+function create_line_number($line) {
+    switch (strlen($line)) {
+	case 1:
+	    $line = "000".$line;
+	    break;
+	case 2:
+	    $line = "00".$line;
+	    break;
+	case 3:
+	    $line = "0".$line;
+	    break;
+    }
+    return $line;
+}
+
+/**
+ * 地址补足8位
+ */
+function create_address($address) {
+    switch (strlen($address)) {
+	case 4:
+	    $address = "0000".$address;
+	    break;
+	case 6:
+	    $address = "00".$address;
+	    break;
+    }
+    return $address;	
+}
+
+
+/**
  * 存文件操作
- * */
+ */
 function store_content_into_file($f, $content) {
     $fd = fopen($f, 'a');
     // 自己管理是否添加换行等功能
@@ -207,9 +297,9 @@ function store_content_into_file($f, $content) {
     fclose($fd);
 }
 
-/*
+/**
  * 到updated_fle文件中查找当前id的指定文件是否已经更新
- * */
+ */
 function find_id_is_updated($id, $name) {
     $fd = fopen("updated_file", "r");
     // 得到当前已经更新了的客户端信息和文件信息，文件一定要追加版本号
@@ -230,27 +320,6 @@ function find_id_is_updated($id, $name) {
 
 /**
  * 读取S19文件任意一行
- */
-function get_file_line($f, $line_num){
-    $n = 0;
-    $handle = fopen("../file/" . $f . ".s19", "r");
-    if ($handle) {
-        while (!feof($handle)) {
-            ++$n;
-            $out = fgets($handle, 1024);
-            if($line_num == $n)
-                break;
-        }
-        fclose($handle);
-    }
-
-    if( $line_num == $n)
-        return $out;
-    return false;
-}
-
-/**
- * 解析S19文件
  */
 function AnalyzerFile($filename) {
     global $MCUAddressLimit;
@@ -366,30 +435,42 @@ function AnalyzerFile($filename) {
 
     foreach($s_data as $rd) {
         if ($rd["_Type"] == "S1" || $rd["_Type"] == "S2" || $rd["_Type"] == "S3") {
-            if ($rd['_Address'] == 0xffb0) {
-            }
-            if ((($rd['_Address'] < $AddressLimitMax) && ($rd['_Address'] > $AddressLimitMin)) || (($rd['_Address'] < $AddrXEPUnpageMax) && ($rd['_Address'] > $AddrXEPUnpageMin))) {
-                array_push($s1s2s3_data, $rd);
-                $count = 0;
-                foreach($rd['_Data'] as $d) {
-                    if ($d == 0xff) {
-                        $count += 1;
-                    }
+            if (substr($filename, 8, 11) == "BMU") {
+ 		if (($rd['_Address'] >= $AddrXEPUnpageMax) || ($rd['_Address'] < $AddrXEPUnpageMin)) {
+		    continue;
                 }
-
-                if ($count >= count($rd['_Data'])) {
+            } else {
+                if (($rd['_Address'] >= $AddressLimitMax) || ($rd['_Address'] < $AddressLimitMin)) {
                     continue;
-                }
-
-                $tmp_addr = $rd['_Address'];
-                $i = 0;
-                foreach($rd['_Data'] as $d) {
-                    // 全部还原成十六进制
-                    $tmp_bin_data[dechex($tmp_addr + $i)] = dechex($d);
-                    $i += 1;
-                }
+		}                 
             }
+	
+	    array_push($s1s2s3_data, $rd);
+            $count = 0;
+            foreach($rd['_Data'] as $d) {
+                if ($d == 0xff) {
+                     $count += 1;
+                 }
+             }
+
+            if ($count >= count($rd['_Data'])) {
+                continue;
+            }
+
+            $tmp_addr = $rd['_Address'];
+            $i = 0;
+            foreach($rd['_Data'] as $d) {
+                // 全部还原成十六进制
+                $tmp_bin_data[dechex($tmp_addr + $i)] = dechex($d);
+                $i += 1;
+            }            
         }
+    }
+    //有效值求和，作为校验值
+    //var_export($s1s2s3_data);
+    global $checksum;
+    foreach($s1s2s3_data as $dataArray) {
+    	$checksum += array_sum($dataArray['_Data']);
     }
     return $tmp_bin_data;
 }
