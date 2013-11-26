@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+	<title>test</title>
+</head>
+<body>
 <style>
 select {
     display: inline-block;
@@ -20,6 +26,9 @@ select {
    width: 900px; 
    height: 400px;
    margin: 20px auto;
+   border-left: 1px solid #eee;
+   border-bottom: 1px solid #eee;
+   position: relative;
 }
 .select-arr {
     margin: 20px 0 20px 50px;
@@ -78,34 +87,44 @@ input.date {
     background-color: #3276b1;
     border-color: #285e8e;
 }
+.y-cord {
+	position: absolute;
+	width: 60px;
+	left: -65px;
+	top: 0;
+}
+.y-item {
+	margin: 0;
+	padding: 0;
+	margin-bottom: 8px;
+}
 </style>
 <div class="select-arr">
+	<span class="select-label">
+		公司名称:
+	</span>
+	<select id="" name="">
+		<option value="">请选择</option>
+		<option value="">众泰</option>
+		<option value="">宜兴</option>
+	</select>
     <span class="select-label">
         电动汽车:
     </span>
     <select id="" name="">
-        <option value="">电动汽车1</option>
-        <option value="">电动汽车2</option>
-        <option value="">电动汽车3</option>
-        <option value="">电动汽车4</option>
+        <option value="">请选择</option>
     </select>
     <span class="select-label">
         电池组:
     </span>
     <select id="" name="">
-        <option value="">电动汽车1</option>
-        <option value="">电动汽车2</option>
-        <option value="">电动汽车3</option>
-        <option value="">电动汽车4</option>
+        <option value="">请选择</option>
     </select>
     <span class="select-label">
         单体电池:
     </span>
     <select id="" name="">
-        <option value="">电动汽车1</option>
-        <option value="">电动汽车2</option>
-        <option value="">电动汽车3</option>
-        <option value="">电动汽车4</option>
+		<option value="">请选择</option>
     </select>
     <span class="select-label">
         开始日期：
@@ -114,19 +133,31 @@ input.date {
     <button id="sub-btn" class="b-btn b-btn-primary">确认提交</button>
 </div>
 <div class="battery-container">
-    <img src="<?php echo base_url('jpgraph/1.png');?>" alt="" id="jpgraph">
+	<div class="y-cord">
+		<p class="y-item">	
+			<input type="radio" id="electric" name="yCord" value="电流" checked><label for="electric">电流</label>
+		</p>
+		<p class="y-item">
+			<input type="radio" id="voltage" name="yCord" value="电压"><label for="voltage">电压</label>
+		</p>
+		<p class="y-item">
+			<input type="radio" id="temp" name="yCord" value="温度"><label for="temp">温度</label>
+		</p>
+		<p class="y-item">
+			<input type="radio" id="SOC" name="yCord" value="SOC"><label for="SOC">SOC</label>
+		</p>
+	</div>
+    <img src="" alt="" id="jpgraph">
 </div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js">
+</script>
 <script type="text/javascript">
     $(function() {
-        $.ajax({
-            method: 'post',
-            url: '/welcome/'
-            success: function(data) {
-                console.log(data);
-            },
-            error: function(data) {
-                console.log(data);
-            }
-        });
+        $.get("battery.js", function(data) {
+			console.log(data);
+			//alert(data);
+		}, 'json');
     });
 </script>
+</body>
+</html>
