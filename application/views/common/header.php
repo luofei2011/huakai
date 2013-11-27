@@ -11,22 +11,9 @@
     <div class="grid-1004">
         <div class="header">
             <div class="header-top">
-                <div class="logo">
-                    <img src="<?php echo base_url('static/img/logo.png');?>" alt="华凯" />
-                </div>
-                <div class="banner">
-                    <div class="b-top">
-                        <a href="#">中文</a>|
-                        <a href="#">EngLish</a>
-                    </div>
-                    <div class="b-bottom">
-                        <span>客户服务电话: 400-168-0234</span>
-                        <span class="b-user">
-                            <a href="welcome/battery" target="_blank">登录</a>|
-                            <a href="#">注册</a>
-                        </span>
-                    </div>
-                </div>
+				<div class="header-title">
+				Better air quality, better life with eCars
+				</div>
             </div>
             <div class="header-item">
                 <ul>

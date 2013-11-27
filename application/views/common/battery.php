@@ -1,4 +1,7 @@
 <style>
+body {
+	width: 100%;
+}
 select {
     display: inline-block;
     height: 34px;

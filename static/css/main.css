@@ -5,6 +5,22 @@
     width: 1004px;
     margin: 0 auto;
 }
+.header-top {
+	position: relative;
+	background: url('../img/header.png') no-repeat;
+	height: 220px;
+}
+.header-title {
+	position: absolute;
+	left: 50px;
+	top: 40px;
+	height: 80px;
+	width: 200px;
+	color: #FFF;
+	font-size: 20px;
+	letter-spacing: 3px;
+	word-break: break-all;
+}
 .header-item {
     background-color: #1f4e7c;
     height: 35px;
@@ -63,7 +79,7 @@
 #query-btn {
     position: absolute;
     right: 0;
-    top: 6px;
+    top: 7px;
     width: 24px;
     height: 24px;
     line-height: 0;
@@ -71,49 +87,9 @@
     background: url('../img/search.png') no-repeat;
     cursor: pointer;
 }
-.header-top {
-    display: inline-block;
-    width: 100%;
-}
-.logo {
-    height: 110px;
-    width: 620px;
-    float: left;
-}
-.banner {
-    width: 340px;
-    float: right;
-    text-align: right;
-}
-.b-top a, .b-top {
-    color: #333;
-    font-size: 14px;
-}
-.b-top, .b-bottom {
-    height: 55px;
-    line-height: 55px;
-}
-.b-top a {
-    margin: 0 10px;
-}
-.b-bottom {
-    height: 35px;
-    line-height: 35px;
-    font-size: 18px;
-}
-.b-bottom .b-user {
-    font-size: 14px;
-    color: #00c;
-}
-.b-bottom a {
-    color: #00c;
-    margin-left: 5px;
-    margin-right: 5px;
-}
 .photo-show {
 	/*background: url('../img/2.jpg');*/
     height: 380px;
-    padding: 0 10px;
     margin: 15px 0;
     background-color: #f5f5f5;
     position: relative;
