@@ -3,7 +3,7 @@
  * */
 html,body{
 	font: normal 12px/1.5 Helvetica, Microsoft YaHei, sans-serif; 
-	height:101%;
+    height: 100%;
     color: #666;
 }
 /*reset.css*/
@@ -47,23 +47,16 @@ fieldset legend {
 .clearfix { zoom: 1; }
 .clearfix:after { clear: both; }
 .clearfix:before, .clearfix:after { content: ""; display: table; }
-#footer-push {
-    height: 95px;
-    clear: both;
-}
 #footer{
     text-align:center; 
-    padding: 10px 40px;
+    padding-bottom: 30px;
 }
 #footer p {
 	clear: both;
-    color: #A0A0A0;
-    background: #369;
     padding: 2px;
 }
 #footer a{
     font-size: 14px;
-    color: #fff;
     text-decoration: none;
 }
 input[type=text], input[type=password] {
@@ -92,7 +85,7 @@ input[type=text]:focus, input[type=password]:focus {
 	margin: 10px auto;
 	width: 250px;
 }
-input[type=submit],input[type=reset],input[type=button]{
+input[type=reset],input[type=button]{
     width: 100px;
     margin: 10px 0;
     cursor: pointer;

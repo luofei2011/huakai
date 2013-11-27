@@ -49,12 +49,12 @@
                     <a href="">联系我们</a>
                   </li>
                 </ul>
-                <span class="search">
+                <div class="search">
                     <form action="">
                         <input type="text" name="keyword" id="keyword" placeholder="请输入搜索的关键字">
-                        <input type="submit" />
+                        <input type="submit" id="query-btn">
                     </form>
-                </span>
+                </div>
             </div>
             <!--header-item end!!!-->
         </div>

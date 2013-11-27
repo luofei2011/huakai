@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<head>
-	<title>test</title>
-</head>
-<body>
 <style>
 select {
     display: inline-block;
@@ -23,15 +17,13 @@ select {
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 .battery-container {
+   position: relative;
    width: 900px; 
    height: 400px;
    margin: 20px auto;
-   border-left: 1px solid #eee;
-   border-bottom: 1px solid #eee;
-   position: relative;
 }
 .select-arr {
-    margin: 20px 0 20px 50px;
+    margin: 20px 0;
 }
 .select-label {
     margin-left: 5px;
@@ -90,13 +82,16 @@ input.date {
 .y-cord {
 	position: absolute;
 	width: 60px;
-	left: -65px;
+	left: -35px;
 	top: 0;
 }
 .y-item {
 	margin: 0;
 	padding: 0;
 	margin-bottom: 8px;
+}
+.y-item input, .y-item label {
+    cursor: pointer;
 }
 </style>
 <div class="select-arr">
@@ -147,9 +142,8 @@ input.date {
 			<input type="radio" id="SOC" name="yCord" value="SOC"><label for="SOC">SOC</label>
 		</p>
 	</div>
-    <img src="" alt="" id="jpgraph">
+    <img src="<?php echo base_url('jpgraph/1.png');?>" alt="" id="jpgraph">
 </div>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js">
 </script>
 <script type="text/javascript">
     $(function() {
@@ -159,5 +153,3 @@ input.date {
 		}, 'json');
     });
 </script>
-</body>
-</html>

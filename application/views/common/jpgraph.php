@@ -7,7 +7,7 @@ $ydata = array(11,3,8,12,5,1,9,13,5,7);
  
 //设置图像大小
 $width=900;
-$height=400;
+$height=420;
  
 //初始化jpgraph并创建画布
 $graph = new Graph($width,$height);

@@ -6,10 +6,9 @@
     margin: 0 auto;
 }
 .header-item {
-    background-color: #369;
-    height: 40px;
-    line-height: 40px;
-    border-radius: 6px;
+    background-color: #1f4e7c;
+    height: 35px;
+    line-height: 35px;
 }
 .header-item ul {
     padding: 0 0 0 30px;
@@ -20,7 +19,7 @@
     margin: 0 10px;
 }
 .header-item ul li a {
-    padding: 12px 15px;
+    padding: 9px 15px;
     font-weight: bold;
     color: #FFF;
     font-size: 14px;
@@ -28,29 +27,49 @@
     text-decoration: none;
 }
 .header-item ul li a:hover {
-    background-color: #99cccc;
-    color: #000 !important; 
+    background-color: #417bb6;
     text-decoration: none;
 }
 .header-item .search {
+    position: relative;
+    width: 206px;
+    zoom: 1;
     float: right;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 .search form {
     display: inline-block;
 }
 #keyword {
-    width: 160px;
-    height: 25px;
-    box-shadow: none;
+    width: 200px;
+    padding: 4px 3px;
+    border: 0 none;
+    border-radius: 0;
+    height: auto;
+    line-height: 16px;
+}
+#keyword:focus {
+    border: 0 none;
+    border-radius: 0;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
-    text-indent: 0.5em;
+    box-shadow: none;
 }
 .search input {
     vertical-align: middle;
     border: none;
     margin: 0;
+}
+#query-btn {
+    position: absolute;
+    right: 0;
+    top: 6px;
+    width: 24px;
+    height: 24px;
+    line-height: 0;
+    text-indent: -9999px;
+    background: url('../img/search.png') no-repeat;
+    cursor: pointer;
 }
 .header-top {
     display: inline-block;
