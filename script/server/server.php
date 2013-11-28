@@ -16,13 +16,12 @@ $clientID = "";
 $output = "";
 $isUpdate = "";
 $isEnd = false;
-// 断点续传的依据, 从这个地方开始传输
+// 读取S19文件的当前行数
 $line = 0;
 $number = 0; //表示有效数据的发送次数
-// BootLoader所需的codeSize, blockSize, blockNumber
+// BootLoader所需的codeSize, blockSize
 $codesize = 0;
 $blocksize = 32;
-$blocknum = 0;
 // 校验值
 $checksum = 0;
 // 计算s19文件codeSize所需的数据
@@ -74,7 +73,6 @@ do {
             // 将SIM卡的唯一ID存为客户端ID，以便识别是哪辆车发送的数据
             $clientID = substr($input, 11, 27);
             print_screen(LOG_MSG, "Client ID is: $clientID");
-
             // 不需要单独抽为函数了,后面不会用到
             if ($df = opendir("../file/")) {
                 while(($f = readdir($df)) !== false) {
@@ -85,58 +83,46 @@ do {
                         // 针对是否重复更新的问题,可以把已更新的文件ID和更新文件时间模块等绑定
                         // 针对更新补重复问题，建议每次更新的时候文件名上追加版本号！！！
                         if ($fExt== "s19" && !query_cid_is_updated($clientID, $fName)) {
-                            // 有文件需要更新
-                            print_screen(LOG_MSG, "NEW VERSION $fName");
-                            $isUpdate = "NEW VERSION " . $fName . "\n";
+			    //TODO：file文件夹里无文件，或者存在已更新过的文件时，脚本101行会出错 ：Could not write output
+                            // 有文件需要更新            
+                            $isUpdate = "NEW VERSION " . $fName;
                             // 每次只更新一个文件,因此当遇到一个文件以后就退出当前循环
                             break;
                         }
                     }
                 }
                 if (!$fName) {
-                    print_screen(LOG_MSG, "NO UPDATE");
-                    $isUpdate = "NO UPDATE\n";
+                    $isUpdate = "NO UPDATE";
                 }
                 closedir($df);
             }
             $output = $isUpdate;
-	    echo $output;
-            socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
+	    print_screen(LOG_MSG, $output);
+            socket_write($spawn, $output, strlen($output)) or die("Could not write output!\n");
         } else if (substr($input, 0, 3) == "END") {
-                $output = "BYE\n";
-                // TODO 暂时存为文件，后面更新为数据库(可先制定好数据库的格式)
-                socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
-                // 存入updated_file中, 已id做索引可减少遍历的次数
-                //store_content_into_file("updated_file", $clientID . " " . $fName . "\n");
-                store_update_info_to_db($clientID, $fName);
-                $isEnd = true;
-                print_screen(LOG_MSG, "Client is disconnect!");
+            $output = "BYE";
+	    print_screen(LOG_MSG, $output);
+            socket_write($spawn, $output, strlen($output)) or die("Could not write output!\n");
+            // 存入updated_file中, 已id做索引可减少遍历的次数
+            //store_content_into_file("updated_file", $clientID . " " . $fName . "\n");
+	    //更新信息存入数据库                
+	    store_update_info_to_db($clientID, $fName);
+            $isEnd = true;
+            print_screen(LOG_MSG, "Client is disconnect!");
         } else if (substr($input, 0, 8) == "CODESIZE") {
             // 行数和有效数据发送次数首先归0；因为如果校验失败，则重头开始传
             $line = 0;
 	    $number = 0;
             $codesize = count(AnalyzerFile("../file/" . $fName . ".s19"));
-	    $codesize = create_codesize($codesize);
-            $output = "CODESIZE:" . $codesize . "\n";
-	    echo $output;
-            socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
+	    $codesize = create_codesize(dechex($codesize)); //转化为十六进制
+            $output = "CODESIZE:" . $codesize;
+	    print_screen(LOG_MSG, $output);
+            socket_write($spawn, $output, strlen($output)) or die("Could not write output!\n");
         } else if (substr($input, 0, 9) == "BLOCKSIZE") {
-            $output = "BLOCKSIZE:" . $blocksize . "\n";
-	    echo $output;
-            socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
-        } else if (substr($input, 0, 8) == "BLOCKNUM") {
-            if($codesize%32 == 0) {
-                $blocknum = intval($codesize/32);
-            } else {
-                $blocknum = intval($codesize/32) + 1;
-            }
-	    $blocknum = create_blocknum($blocknum);
-            $output = "BLOCKNUM:" . $blocknum . "\n";
-	    echo $output;
-            socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
+            $output = "BLOCKSIZE:" . dechex($blocksize); //转化为十六进制
+	    print_screen(LOG_MSG, $output);
+            socket_write($spawn, $output, strlen($output)) or die("Could not write output!\n");
         } else if (substr($input, 0, 2) == "OK") {
-            // Sleep2秒等待can通信
-            // sleep(2);
             $line += 1;
             $linedata = get_file_line($fName, $line);
             if ($linedata) {
@@ -145,20 +131,20 @@ do {
                 if($type == "S1") { //判断是S1、S2还是S3开头
                     $address = substr($linedata, 4, 4); //S1开头,地址4位
 		    if(substr($address, 0, 2) == "FF") { //地址以FF开头的不要
-                        $output = "USELESS" . "\n";
-			echo $output;
-			socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");   
+                        $output = "USELESS";
+			print_screen(LOG_MSG, $output);
+			socket_write($spawn,$output,strlen($output)) or die("Could not write output!\n");   
                     } else {
-                  	$data = substr($linedata, 8, -4); //数据长度取64位	
+                  	$data = substr($linedata, 8, -4); 	
                         if(strlen($data) < 64) { //不足64位的以FF补齐
 			    $data = data_process($data, strlen($data));
 			}						
                     	$address = create_address($address);
 			$number += 1; // 有效数据发送次数+1  
-			$number = create_send_number($number); 
-                    	$output = "N".$number."A".$address."D".$data."\n";
-			echo $output;
-                        socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");  
+			$n = create_send_number(dechex($number));  //转化为十六进制
+                    	$output = "N".$n."A".$address."D".$data;
+			print_screen(LOG_MSG, $output);
+                        socket_write($spawn,$output,strlen($output)) or die("Could not write output!\n");  
                     }                
                 } else if($type == "S2") {
 		    $address = substr($linedata, 4, 6); //S2开头,地址6位
@@ -168,10 +154,10 @@ do {
                     }
 		    $address = create_address($address); //地址补足8位
 		    $number += 1; // 有效数据发送次数+1  
-		    $number = create_send_number($number);
-		    $output = "N".$number."A".$address."D".$data."\n";
-		    echo $output;
-                    socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");		
+		    $n = create_send_number(dechex($number)); //转化为十六进制
+		    $output = "N".$n."A".$address."D".$data;
+		    print_screen(LOG_MSG, $output);
+                    socket_write($spawn,$output,strlen($output)) or die("Could not write output!\n");		
                 } else if($type == "S3") {
                     $address = substr($linedata, 4, 8); //S3开头,地址8位
 		    $data = substr($linedata, 12, -4);
@@ -179,24 +165,20 @@ do {
 			$data = data_process($data, strlen($data));					
                     }
 		    $number += 1; // 有效数据发送次数+1  
-		    $number = create_send_number($number);
-                    $output = "N".$number."A".$address."D".$data."\n";
-		    echo $output;
-                    socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");				
+		    $n = create_send_number(dechex($number)); //转化为十六进制
+                    $output = "N".$n."A".$address."D".$data;
+		    print_screen(LOG_MSG, $output);
+                    socket_write($spawn,$output,strlen($output)) or die("Could not write output!\n");				
 		} else {
-                    $output = "USELESS" . "\n";
-		    echo $output;
-                    socket_write($spawn,$output,strlen($output)) or die("Could not write output\n"); 
+                    $output = "USELESS";
+		    print_screen(LOG_MSG, $output);
+                    socket_write($spawn,$output,strlen($output)) or die("Could not write output!\n"); 
 		}
             } else {
-                $output = "OVER\n"; //发送完毕
-		echo $output;
-                socket_write($spawn,$output,strlen($output)) or die("Could not write output\n");
+                $output = "OVER"; //发送完毕
+		print_screen(LOG_MSG, $output);
+                socket_write($spawn,$output,strlen($output)) or die("Could not write output!\n");
             }
-        } else if ($input == "ERROR") { //客户端暂时不会回复ERROR
-            // 断点续传
-            //$output = get_file_line($line);
-            //socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
         } else if (substr($input, 0, 8) == "VALIDATE") {
             // 客户端传来的验证总和
             $client_checksum = substr($input, 9, strlen($input) - 9);
@@ -205,8 +187,9 @@ do {
 	    $checksum = create_checksum($checksum);
 	    print_screen(INFO_MSG, "SERVER CHECKSUM: $checksum");
             // 与本地checksum校验值比较
-            $output = ($client_checksum == $checksum) ? "VALIDATE OK\n" : "VALIDATE ERROR\n";
-            socket_write($spawn, $output, strlen($output)) or die("Could not write output\n");
+            $output = ($client_checksum == $checksum) ? "VALIDATE OK" : "VALIDATE ERROR";
+	    print_screen(LOG_MSG, $output);
+            socket_write($spawn, $output, strlen($output)) or die("Could not write output!\n");
         } else {
             // 得到当前的日期
             $date = date("Y-m-d");
@@ -220,8 +203,9 @@ do {
             fwrite($fd, $input."\n");
             fclose($fd);
             // 结束本次链接
-            $output = "OK\n";
-            socket_write($spawn,$output,strlen($output)) or die("Could not write output"."\n");
+            $output = "OK";
+	    print_screen(LOG_MSG, $output);
+            socket_write($spawn,$output,strlen($output)) or die("Could not write output!\n");
         }
     }
     print_screen(LOG_MSG, "Client is disconnect at " . date("Y-m-d H:i:s"));
@@ -275,25 +259,7 @@ function create_codesize($codesize){
 	   $codesize = "0".$codesize;
 	   break;
     }
-    return $codesize;
-}
-
-/**
- * blocknum补足4位
- */
-function create_blocknum($blocknum){
-    switch (strlen($blocknum)) {
-	case 1:
-	    $blocknum = "000".$blocknum;
-	    break;
-	case 2:
-	    $blocknum = "00".$blocknum;
-	    break;
-	case 3:
-	    $blocknum = "0".$blocknum;
-	    break;
-    }
-    return $blocknum;
+    return strtoupper($codesize); //小写转大写
 }
 
 /**
@@ -311,7 +277,7 @@ function create_send_number($number) {
 	    $number = "0".$number;
 	    break;
     }
-    return $number;
+    return strtoupper($number); //小写转大写
 }
 
 /**
@@ -344,7 +310,7 @@ function create_checksum($checksum){
 	    $checksum = "0".$checksum;
 	    break;
     }
-    return $checksum;
+    return strtoupper($checksum); //小写转大写
 }
 
 /**
@@ -352,7 +318,7 @@ function create_checksum($checksum){
  */
 function data_process($data, $length) {
     global $checksum;
-    for($i=0; $i<(64-length); $i++) {
+    for($i=0; $i<(64-$length); $i++) {
 	$data = $data."F";
     }
     for($j=0;$j<(64-$length)/2; $j++) { //校验值加FF
@@ -393,14 +359,14 @@ function find_id_is_updated($id, $name) {
 }
 
 /**
- * 到数据库中查询当前车次的当前文件是否已经更新
+ * 到数据库中查询当前车辆的BMS模块是否已经更新
  */
 function query_cid_is_updated($cid, $version) {
     $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     $query = "SELECT * FROM update_info WHERE cid='$cid' AND version='$version'";
     $result = mysqli_query($dbc, $query);
     if (!$result)
-        print_screen(ERROR_MSG, "INSERT ERROR");
+        print_screen(ERROR_MSG, "QUERY ERROR");
     $count = mysqli_num_rows($result);
     mysqli_close($dbc);
     print_screen(LOG_MSG, "QUERY SUCCESS");
@@ -417,7 +383,7 @@ function query_cid_is_updated($cid, $version) {
  */
 function store_update_info_to_db($cid, $version) {
     $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-    $query = "INSERT INTO update_info values('', '$cid', '$version')";
+    $query = "INSERT INTO update_info values('', '$cid', '$version', '')";
     $result = mysqli_query($dbc, $query);
     if (!$result)
         print_screen(ERROR_MSG, "INSERT ERROR");
