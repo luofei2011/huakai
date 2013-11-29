@@ -4,6 +4,7 @@ require_once ('jpgraph_line.php');
  
 //Y轴数据
 $ydata = array(11,3,8,12,5,1,9,13,5,7);
+$ydata2 = array(23,43,12,44,22,7,6,10,33);
  
 //设置图像大小
 $width=900;
@@ -39,8 +40,10 @@ $graph->xaxis->SetTickLabels($label_x);
  
 //实例化一个折线图的类并放入数据
 $lineplot=new LinePlot($ydata);
+$lineplot2=new LinePlot($ydata2);
 //将折线图放入jpgraph
 $graph->Add($lineplot);
+$graph->Add($lineplot2);
  
 //显示到浏览器
 $graph->Stroke("jpgraph/1.png");

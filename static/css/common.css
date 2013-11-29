@@ -48,15 +48,13 @@ fieldset legend {
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 #footer{
     text-align:center; 
-    padding-bottom: 30px;
+    height: 40px;
+    line-height: 40px;
+    background: #1f4e7c;
 }
 #footer p {
-	clear: both;
-    padding: 2px;
-}
-#footer a{
+    color: #fff;
     font-size: 14px;
-    text-decoration: none;
 }
 input[type=text], input[type=password] {
 	border: 1px solid #bbb;

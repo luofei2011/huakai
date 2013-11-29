@@ -10,6 +10,16 @@
 	background: url('../img/header.png') no-repeat;
 	height: 220px;
 }
+.company-name {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px 30px;
+}
+.company-name p {
+    color: #FFF;
+    font-size: 20px;
+}
 .header-title {
 	position: absolute;
 	left: 50px;
@@ -34,8 +44,11 @@
     float: left;
     margin: 0 10px;
 }
+.header-item ul li.right {
+    float: right;
+}
 .header-item ul li a {
-    padding: 9px 15px;
+    padding: 10px;
     font-weight: bold;
     color: #FFF;
     font-size: 14px;
