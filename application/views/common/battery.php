@@ -87,17 +87,21 @@ input.date {
 	width: 60px;
 	left: -35px;
 	top: 0;
+    display: none;
 }
 .tab-t {
     position: absolute;
     width: 60px;
     right: -45px;
     top: 0;
+    display: none;
 }
 .y-item {
 	margin: 0;
 	padding: 0;
 	margin-bottom: 8px;
+    height: 18px;
+    line-height: 18px;
 }
 .y-item input, .y-item label {
     cursor: pointer;
@@ -111,6 +115,19 @@ input.date {
 }
 .s-gap {
     margin-bottom: 10px;
+}
+.label-line {
+    display: inline-block;
+    font-weight: bold;
+}
+.label-line-r {
+    color: #FF0000;
+}
+.label-line-g {
+    color: #00FF00;
+}
+.label-line-b {
+    color: #0000FF;
 }
 </style>
 <div class="select-arr">
@@ -154,7 +171,7 @@ input.date {
         <div class="s-gap">
             <div class="s-item">
                 <span class="select-label">
-                    采集日期：
+                    采集日期:
                 </span>
                 <select name="colDate">
                     <option value="">请选择</option>
@@ -165,7 +182,7 @@ input.date {
             </div>
             <div class="s-item">
                 <span class="select-label">
-                    采集间隔：
+                    采集间隔:
                 </span>
                 <input id="time-gap" type="text" readonly class="date b-date" value="10分钟" name="timeGap">
             </div>
@@ -177,16 +194,16 @@ input.date {
 <div class="battery-container">
 	<div class="y-cord">
 		<p class="y-item">	
-			<input type="radio" id="electric" name="yCord" value="电流" checked><label for="electric">电流</label>
+			<span>总电压</span>
+            <span class="label-line label-line-r">-----</span>
 		</p>
 		<p class="y-item">
-			<input type="radio" id="voltage" name="yCord" value="电压"><label for="voltage">电压</label>
+			<span>SOC</span>
+            <span class="label-line label-line-g">-----</span>
 		</p>
 		<p class="y-item">
-			<input type="radio" id="temp" name="yCord" value="温度"><label for="temp">温度</label>
-		</p>
-		<p class="y-item">
-			<input type="radio" id="SOC" name="yCord" value="SOC"><label for="SOC">SOC</label>
+			<span>温度</span>
+            <span class="label-line label-line-b">-----</span>
 		</p>
 	</div>
     <div class="tab-t">
@@ -204,25 +221,47 @@ input.date {
 $(function() {
     hk.autoQueryInfo("company-name", "ele-car", "battery-arr", "signal-battery");
     $('#sub-btn').on('click', function(e) {
-        var obj = hk.formCollect('battery-query');
+        var obj = hk.formCollect('battery-query'),
+            flag = false;
         console.log(obj);
 
         if (!$('#ele-car').val()) {
             alert('电动汽车不能为空！');
             return false;
         }
+
+        // 是否显示旁边的标识
+        $("div.y-cord").show();
+        $("div.tab-t").show();
+        if ($('#battery-arr').val()) {
+            $("div.y-cord").hide();
+            $("div.tab-t").hide();
+            flag = true;
+        } 
         
         if ($('#time-gap').val() !== "10分钟") {
             alert('请采用默认的10分钟间隔!')
             return false;
         }
 
+        if ($('#jpgraph_t'))
+            $('#jpgraph_t').remove();
+
         $.ajax({
             url: '<?php echo base_url("battery/index");?>',
             data: obj,
             method: 'post',
             success: function(msg) {
-                console.log('success:' + msg);
+                var obj = JSON.parse(msg);
+                if (obj.code == 100) {
+                    alert('获取信息失败,请重新获取!');
+                    return;
+                } else if (obj.code == 200) {
+                    document.getElementById('jpgraph').src = "<?php echo base_url();?>" + obj.msg;
+
+                    if (flag)
+                        $('#jpgraph').after("<img src='<?php echo base_url();?>"+ obj.msg2 +"' id='jpgraph_t'>");
+                }
             },
             error: function(msg) {
                 console.log('error:' + msg);
