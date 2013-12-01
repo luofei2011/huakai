@@ -5,7 +5,7 @@ class Battery extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->helper('url');
-        $this->load->model('batteries');
+        $this->load->model('Batteries');
     }
 
     public function index() {
@@ -32,11 +32,14 @@ class Battery extends CI_Controller {
 
         // 显示整车数据
         if (!$batteryArr && !$signalBattery) {
-            $result = $this->Battery_info->query_vehicle_data($eleCar);
+            $result = $this->Batteries->query_vehicle_data($eleCar, $colDate);
             //Y轴数据
-            $ydata = $
-            $ydata2 = array(35,32,29,26,23,21,19,16,13);
-            $ydata3 = array(2,10,14,19,23,26,30,35,45);
+            $ydata2 = explode(";", $result["Voltage"]);
+            $ydata2 = array_merge($ydata2);
+            $ydata = explode(";", $result["Soc"]);
+            $ydata = array_merge($ydata);
+            $ydata3 = explode(";", $result["Temperature"]);
+            $ydata3 = array_merge($ydata3);
             $r = $this->jpgraph(
                 array(
                     "width" => 900,
@@ -45,11 +48,11 @@ class Battery extends CI_Controller {
                     "yLable" => "值域",
                     "xLable" => "时间"
                 ),
-                array($ydata, $ydata2, $ydata3), 
+                array($ydata2, $ydata, $ydata3), 
                 array(
                     "#FF0000",
                     "#00FF00",
-                    "#0000FF"
+                    "0000FFF"
             ));
             echo json_encode(array(
                 "code" => 200,
@@ -144,12 +147,11 @@ class Battery extends CI_Controller {
 	}
 
     public function query_date() {
-        $this->load->model('batteries');
         $con = $this->input->post('con');
-        $resutl = $this->Batteries->query_date_info($con);
+        $result = $this->Batteries->query_date_info($con);
 
         echo json_encode(array(
-            "date" => $result
+            "data" => $result
         ));
     }
 

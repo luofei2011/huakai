@@ -92,9 +92,9 @@ hk.autoQueryInfo = function(cName, carNumber, batterArr, battery) {
                 msg = JSON.parse(msg);
                 console.log(msg);
 
-                if (msg.date)
+                if (msg.data)
                     for (i = 0; len = msg.data.length, i < len; i++) {
-                        _t.append("<option value='"+ msg.data[i] +"'>" + msg.data[i] + "</option>");
+                        _t.append("<option value='"+ msg.data[i].Day +"'>" + msg.data[i].Day + "</option>");
                     }
             }
         })

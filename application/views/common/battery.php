@@ -252,6 +252,7 @@ $(function() {
             data: obj,
             method: 'post',
             success: function(msg) {
+                console.log(msg);
                 var obj = JSON.parse(msg);
                 if (obj.code == 100) {
                     alert('获取信息失败,请重新获取!');
