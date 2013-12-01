@@ -5,9 +5,17 @@ class Battery extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->helper('url');
+        $this->load->model('batteries');
     }
 
-	public function index() {
+    public function index() {
+        $this->load->view('common/header');
+        $this->load->view('common/jpgraph');
+        $this->load->view('common/battery');
+		$this->load->view('common/footer');
+    }
+
+	public function ajax_s() {
         $cName = $this->input->post('companyName');
         $eleCar = $this->input->post('eleCar');
         $batteryArr = $this->input->post('batteryArr');
@@ -24,8 +32,9 @@ class Battery extends CI_Controller {
 
         // 显示整车数据
         if (!$batteryArr && !$signalBattery) {
+            $result = $this->Battery_info->query_vehicle_data($eleCar);
             //Y轴数据
-            $ydata = array(40,37,35,33,28,25,23,19,15,10);
+            $ydata = $
             $ydata2 = array(35,32,29,26,23,21,19,16,13);
             $ydata3 = array(2,10,14,19,23,26,30,35,45);
             $r = $this->jpgraph(
@@ -50,6 +59,7 @@ class Battery extends CI_Controller {
 
         // 显示电池组数据
         if ($batteryArr && !$signalBattery) {
+            $result = $this->Battery_info->query_package_data();
             //Y轴数据
             $ydata = array(40,37,35,33,28,25,23,19,15,10);
             $ydata2 = array(35,32,29,26,23,21,19,16,13);
@@ -92,6 +102,7 @@ class Battery extends CI_Controller {
 
         // 显示单体电池数据
         if ($signalBattery) {
+            $result = $this->Battery_info->query_battery_data();
             //Y轴数据
             $ydata = array(40,37,35,33,28,25,23,19,15,10);
             $ydata2 = array(35,32,29,26,23,21,19,16,13);
@@ -131,6 +142,16 @@ class Battery extends CI_Controller {
             ));
         }
 	}
+
+    public function query_date() {
+        $this->load->model('batteries');
+        $con = $this->input->post('con');
+        $resutl = $this->Batteries->query_date_info($con);
+
+        echo json_encode(array(
+            "date" => $result
+        ));
+    }
 
     /*
      * data is an Array!

@@ -1,7 +1,7 @@
 {
     "沂星": [
-        "试验1号车",
-        "试验2号车",
-        "试验3号车"
+        "Test Vehicle 1",
+        "Test Vehicle 2",
+        "Test Vehicle 3"
     ]
 }

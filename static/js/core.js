@@ -21,3 +21,7 @@ var hk = {
         return obj;
     }
 };
+
+// 首页图片自动切换
+$(function() {
+});

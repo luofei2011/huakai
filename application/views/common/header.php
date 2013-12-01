@@ -23,7 +23,7 @@
             <div class="header-item">
                 <ul>
                   <li>
-                    <a href="">首页</a>
+                    <a href="<?php echo base_url();?>">首页</a>
                   </li>
                   <li>
                     <a href="">公司动态</a>
@@ -38,26 +38,21 @@
                     <a href="">合作伙伴</a>
                   </li>
                   <li>
-                    <a href="">联系我们</a>
+                  <a href="<?php echo base_url('battery');?>">电池数据分析</a>
                   </li>
-                  <li class="right">
-                    <a href="https://huakaienergy.com/battery">电池数据分析</a>
+                  <li>
+                    <a href="https://huakaienergy.com/mail" target="_blank">电子邮件系统</a>
                   </li>
-                  <li class="right">
-                    <a href="https://huakaienergy.com/mail">电子邮件系统</a>
-                  </li>
-                  <li class="right">
-                    <a href="https://huakaienergy.com">信息管理平台</a>
+                  <li>
+                    <a href="https://huakaienergy.com" target="_blank">信息管理平台</a>
                   </li>
                 </ul>
-                <!--
                 <div class="search">
                     <form action="">
                         <input type="text" name="keyword" id="keyword" placeholder="请输入搜索的关键字">
                         <input type="submit" id="query-btn">
                     </form>
                 </div>
-                -->
             </div>
             <!--header-item end!!!-->
         </div>

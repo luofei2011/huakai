@@ -173,7 +173,7 @@ input.date {
                 <span class="select-label">
                     采集日期:
                 </span>
-                <select name="colDate">
+                <select name="colDate" id="col-date">
                     <option value="">请选择</option>
                     <option value="2013-11-27">2013-11-27</option>
                     <option value="2013-11-28">2013-11-28</option>
@@ -248,7 +248,7 @@ $(function() {
             $('#jpgraph_t').remove();
 
         $.ajax({
-            url: '<?php echo base_url("battery/index");?>',
+            url: '<?php echo base_url("battery/ajax_s");?>',
             data: obj,
             method: 'post',
             success: function(msg) {

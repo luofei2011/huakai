@@ -12,6 +12,7 @@ hk.autoQueryInfo = function(cName, carNumber, batterArr, battery) {
         carNumber = $('#' + carNumber),
         batterArr = $('#' + batterArr),
         battery = $('#' + battery),
+        _t = $('#col-date'),
 
         // 数据存放地址
         cars = "/huakai/static/js/ajax/cars.js",
@@ -24,12 +25,14 @@ hk.autoQueryInfo = function(cName, carNumber, batterArr, battery) {
             i, len;
 
         carNumber.html("<option value=''>请选择</option>");
-        carNumber.change();
+        batterArr.html("<option value=''>请选择</option>");
+        battery.html("<option value=''>请选择</option>");
         if (val) {
             $.get(cars, function(data) {
                 var arr = data[val];
-                for (i = 0; len = arr.length, i < len; i++) 
-                    carNumber.append("<option value='"+ arr[i] +"'>"+ arr[i] +"</option>");
+                if (arr)
+                    for (i = 0; len = arr.length, i < len; i++) 
+                        carNumber.append("<option value='Test Vehicle "+ (i + 1) +"'>"+ arr[i] +"</option>");
             }, 'json');
         }
     });
@@ -38,14 +41,19 @@ hk.autoQueryInfo = function(cName, carNumber, batterArr, battery) {
             i, len;
 
         batterArr.html("<option value=''>请选择</option>");
-        batterArr.change();
+        battery.html("<option value=''>请选择</option>");
         if (val) {
             $.get(batteries, function(data) {
-                var arr = data[cName.val()];
+                //var arr = data[cName.val()];
+                var arr = ['Test Vehicle 1', 'Test Vehicle 2', 'Test Vehicle 3'];
                 if (arr && arr.indexOf(val) != -1) {
                     for (i = 1; i <=8; i++) 
                         batterArr.append("<option value='"+ i +"'>"+ i +"</option>");
                 }
+
+                // 更新日期
+                _t.html("<option value=''>请选择</option>");
+                query_date(1);
             }, 'json');
         }
     });
@@ -60,12 +68,35 @@ hk.autoQueryInfo = function(cName, carNumber, batterArr, battery) {
                 battery.append("<option value='"+ (idx + i) +"'>"+ (idx + i) +"</option>");
             }
         }
+
+        // 更新日期
+        _t.html("<option value=''>请选择</option>");
+        query_date(2);
     });
 
-    // 异步获取到数据
-    function ajaxQuery(url) {
-        $.get(url, function(data) {
-            console.log(data);
-        }, 'json');
+    $('#signal-battery').on('change', function() {
+        // 更新日期
+        _t.html("<option value=''>请选择</option>");
+        query_date(3);
+    });
+
+    // 查询当前条件下的日期
+    function query_date(con) {
+        $.ajax({
+            url: '/huakai/battery/query_date',
+            method: 'post',
+            data: {'con': con},
+            success: function(msg) {
+                var i, len;
+                console.log(msg);
+                msg = JSON.parse(msg);
+                console.log(msg);
+
+                if (msg.date)
+                    for (i = 0; len = msg.data.length, i < len; i++) {
+                        _t.append("<option value='"+ msg.data[i] +"'>" + msg.data[i] + "</option>");
+                    }
+            }
+        })
     }
 }
