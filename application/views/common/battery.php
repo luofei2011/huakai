@@ -175,9 +175,6 @@ input.date {
                 </span>
                 <select name="colDate" id="col-date">
                     <option value="">请选择</option>
-                    <option value="2013-11-27">2013-11-27</option>
-                    <option value="2013-11-28">2013-11-28</option>
-                    <option value="2013-11-29">2013-11-29</option>
                 </select>
             </div>
             <div class="s-item">
@@ -227,6 +224,11 @@ $(function() {
 
         if (!$('#ele-car').val()) {
             alert('电动汽车不能为空！');
+            return false;
+        }
+
+        if (!$('#col-date').val()) {
+            alert('采集日期不能为空！');
             return false;
         }
 

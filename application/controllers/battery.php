@@ -62,26 +62,15 @@ class Battery extends CI_Controller {
 
         // 显示电池组数据
         if ($batteryArr && !$signalBattery) {
-            $result = $this->Battery_info->query_package_data();
+            $result = $this->Batteries->query_package_data($eleCar, $colDate, $batteryArr);
             //Y轴数据
-            $ydata = array(40,37,35,33,28,25,23,19,15,10);
-            $ydata2 = array(35,32,29,26,23,21,19,16,13);
-            $ydata3 = array(2,10,14,19,23,26,30,35,45);
+            $ydata1 = array_merge(explode(";", $result['Temperature1']));
+            $ydata2 = array_merge(explode(";", $result['Temperature2']));
+            $ydata3 = array_merge(explode(";", $result['Temperature3']));
+            $ydata4 = array_merge(explode(";", $result['Temperature4']));
+            $ydata5 = array_merge(explode(";", $result['Temperature5']));
+            $ydata6 = array_merge(explode(";", $result['Temperature6']));
             $r1 = $this->jpgraph(
-                array(
-                    "width" => 440,
-                    "height" => 420,
-                    "title" => "电池组信息显示页面",
-                    "yLable" => "电压",
-                    "xLable" => "时间"
-                ),
-                array($ydata, $ydata2, $ydata3), 
-                array(
-                    "#FF0000",
-                    "#00FF00",
-                    "#0000FF"
-            ));
-            $r2 = $this->jpgraph(
                 array(
                     "width" => 440,
                     "height" => 420,
@@ -89,29 +78,49 @@ class Battery extends CI_Controller {
                     "yLable" => "温度",
                     "xLable" => "时间"
                 ),
-                array($ydata, $ydata2, $ydata3), 
+                array($ydata1, $ydata2, $ydata3, $ydata4, $ydata5, $ydata6), 
                 array(
                     "#FF0000",
                     "#00FF00",
-                    "#0000FF"
+                    "#0000FF",
+                    "#FFFFFF",
+                    "#369"
             ));
+
+            $result = $this->Batteries->query_battery_data($eleCar, $colDate);
+            $b_ = array();
+            $idx = (intval($batteryArr) - 1) * 22;
+            for ($i = 1; $i <= 22; $i++) {
+                $b_[$i - 1] = array();
+                $b_[$i - 1] = array_merge(explode(";", $result['Battery' . strval($idx + $i)]));
+            }
+            var_dump($b_);
+            return;
+            $r2 = $this->jpgraph(
+                array(
+                    "width" => 440,
+                    "height" => 420,
+                    "title" => "电池组信息显示页面",
+                    "yLable" => "电压",
+                    "xLable" => "时间"
+                ),
+                $b_
+            );
 
             echo json_encode(array(
                 "code" => 200,
-                "msg" => $r1,
-                "msg2" => $r2
+                "msg" => $r2,
+                "msg2" => $r1
             ));
         }
 
         // 显示单体电池数据
         if ($signalBattery) {
-            $result = $this->Battery_info->query_battery_data();
+            $result = $this->Batteries->query_battery_data($eleCar, $colDate, $num);
             //Y轴数据
-            $ydata = array(40,37,35,33,28,25,23,19,15,10);
-            $ydata2 = array(35,32,29,26,23,21,19,16,13);
-            $ydata3 = array(2,10,14,19,23,26,30,35,45);
-            $ydata4 = array(21,19,17,10,2,26,30,35,45);
-            $r1 = $this->jpgraph(
+            $b_ = $result['Battery' . $num];
+            $ydata = array_merge(explode(";", $b_));
+            $r = $this->jpgraph(
                 array(
                     "width" => 440,
                     "height" => 420,
@@ -123,25 +132,10 @@ class Battery extends CI_Controller {
                 array(
                     "#FF0000"
             ));
-            $r2 = $this->jpgraph(
-                array(
-                    "width" => 440,
-                    "height" => 420,
-                    "title" => "单体电池显示页面",
-                    "yLable" => "温度",
-                    "xLable" => "时间"
-                ),
-                array($ydata, $ydata2, $ydata3), 
-                array(
-                    "#FF0000",
-                    "#00FF00",
-                    "#0000FF"
-            ));
 
             echo json_encode(array(
                 "code" => 200,
-                "msg" => $r1,
-                "msg2" => $r2
+                "msg" => $r
             ));
         }
 	}
@@ -199,8 +193,10 @@ class Battery extends CI_Controller {
             $tmpLine = new LinePlot($data[$i]);
 
             // 当传递了颜色值时
-            if (count($color)) 
-                $tmpLine->setColor($color[$i]);
+            if ($color) {
+                if (count($color) < $i) 
+                    $tmpLine->setColor($color[$i]);
+            }
             $graph->Add($tmpLine);
         }
          
