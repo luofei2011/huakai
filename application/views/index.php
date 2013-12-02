@@ -41,13 +41,13 @@ $(function() {
 <div class="intro-container clearfix">
     <div class="i-left">
         <div class="intro-title">
-            <a href="#">工程案例 >></a>
+            <a href="#">公司动态 >></a>
             <hr/>
         </div>
     </div>
     <div class="i-right">
         <div class="intro-title">
-            <a href="#">工程案例 >></a>
+            <a href="#">产品中心 >></a>
             <hr/>
         </div>
     </div>
@@ -61,7 +61,7 @@ $(function() {
     </div>
     <div class="i-right">
         <div class="intro-title">
-            <a href="#">工程案例 >></a>
+            <a href="#">合作伙伴 >></a>
             <hr/>
         </div>
     </div>

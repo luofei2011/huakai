@@ -26,16 +26,13 @@
                     <a href="<?php echo base_url();?>">首页</a>
                   </li>
                   <li>
-                    <a href="">公司动态</a>
-                  </li>
-                  <li>
                     <a href="">产品中心</a>
                   </li>
                   <li>
-                    <a href="">工程案例</a>
+                    <a href="">诚聘英才</a>
                   </li>
                   <li>
-                    <a href="">合作伙伴</a>
+                    <a href="">联系我们</a>
                   </li>
                   <li>
                   <a href="<?php echo base_url('battery');?>">电池数据分析</a>
