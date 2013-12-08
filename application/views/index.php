@@ -43,12 +43,18 @@ $(function() {
         <div class="intro-title">
             <a href="#">公司动态 >></a>
             <hr/>
+            <div class="item-content">
+                <img src="<?php echo base_url('static/img/b_1.jpg');?>" alt="">
+            </div>
         </div>
     </div>
     <div class="i-right">
         <div class="intro-title">
             <a href="#">产品中心 >></a>
             <hr/>
+            <div class="item-content">
+                <img src="<?php echo base_url('static/img/b_2.jpg');?>" alt="">
+            </div>
         </div>
     </div>
 </div>
@@ -57,12 +63,18 @@ $(function() {
         <div class="intro-title">
             <a href="#">工程案例 >></a>
             <hr/>
+            <div class="item-content">
+                <img src="<?php echo base_url('static/img/b_3.jpg');?>" alt="">
+            </div>
         </div>
     </div>
     <div class="i-right">
         <div class="intro-title">
             <a href="#">合作伙伴 >></a>
             <hr/>
+            <div class="item-content">
+                <img src="<?php echo base_url('static/img/b_4.jpg');?>" alt="">
+            </div>
         </div>
     </div>
 </div>

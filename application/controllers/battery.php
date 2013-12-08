@@ -42,21 +42,32 @@ class Battery extends CI_Controller {
             $ydata3 = array_merge($ydata3);
             $r = $this->jpgraph(
                 array(
-                    "width" => 900,
+                    "width" => 440,
                     "height" => 420,
                     "title" => "整车信息显示页面",
                     "yLable" => "值域",
                     "xLable" => "时间"
                 ),
-                array($ydata2, $ydata, $ydata3), 
+                array($ydata, $ydata3), 
                 array(
                     "#FF0000",
-                    "#00FF00",
-                    "0000FFF"
+                    "#00FF00"
+            ));
+            $r_t = $this->jpgraph(
+                array(
+                    "width" => 440,
+                    "height" => 420,
+                    "title" => "整车信息显示页面",
+                    "yLable" => "电压",
+                    "xLable" => "时间"
+                ),
+                array($ydata2), 
+                array(
+                    "0000FF"
             ));
             echo json_encode(array(
                 "code" => 200,
-                "msg" => $r
+                "line" => array($r, $r_t)
             ));
         }
 
@@ -94,8 +105,8 @@ class Battery extends CI_Controller {
                 $b_[$i - 1] = array();
                 $b_[$i - 1] = array_merge(explode(";", $result['Battery' . strval($idx + $i)]));
             }
-            var_dump($b_);
-            return;
+            //var_dump($b_);
+            //return;
             $r2 = $this->jpgraph(
                 array(
                     "width" => 440,
@@ -109,20 +120,19 @@ class Battery extends CI_Controller {
 
             echo json_encode(array(
                 "code" => 200,
-                "msg" => $r2,
-                "msg2" => $r1
+                "line" => array($r2, $r1)
             ));
         }
 
         // 显示单体电池数据
         if ($signalBattery) {
-            $result = $this->Batteries->query_battery_data($eleCar, $colDate, $num);
+            $result = $this->Batteries->query_battery_data($eleCar, $colDate, $signalBattery);
             //Y轴数据
-            $b_ = $result['Battery' . $num];
+            $b_ = $result['Battery' . $signalBattery];
             $ydata = array_merge(explode(";", $b_));
             $r = $this->jpgraph(
                 array(
-                    "width" => 440,
+                    "width" => 900,
                     "height" => 420,
                     "title" => "单体电池显示页面",
                     "yLable" => "电压",
@@ -135,7 +145,7 @@ class Battery extends CI_Controller {
 
             echo json_encode(array(
                 "code" => 200,
-                "msg" => $r
+                "line" => array($r)
             ));
         }
 	}
@@ -152,7 +162,7 @@ class Battery extends CI_Controller {
     /*
      * data is an Array!
      * */
-    private function jpgraph($config, $data, $color) {
+    private function jpgraph($config, $data, $color = false) {
         require_once ('jpgraph.php');
         require_once ('jpgraph_line.php');
          
@@ -202,7 +212,8 @@ class Battery extends CI_Controller {
          
         //显示到浏览器
         // 以当前时间的md5加密取前8位作为文件名
-        $dir = "jpgraph/g_" . substr(md5(date("Y-m-d H:i:s")), 0, 8) . ".png";
+        // 修正：当两次执行时间间隔非常短时，8位字母并不能区别；故再添加随机码进行区别
+        $dir = "jpgraph/g" . rand(0, 100) ."_" . substr(md5(date("Y-m-d H:i:s")), 0, 8) . ".png";
         $graph->Stroke($dir);
 
         return $dir;

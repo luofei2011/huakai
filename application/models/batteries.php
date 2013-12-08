@@ -5,16 +5,16 @@ class Batteries extends CI_Model {
         parent::__construct();
    }
 
-    function query_battery_data($name, $date, $num) {
-        $sql = "SELECT `VehicleId` FROM `Vehicle_Data_YX` WHERE `Name`='" . $name . "' and `Day`='" . $date . "'";
+    function query_battery_data($name, $date, $num = false) {
+        $sql = "SELECT `VehicleId` FROM `vehicle_data_yx` WHERE `Name`='" . $name . "' and `Day`='" . $date . "'";
         $query = $this->db->query($sql);
         $result = $query->result_array();
         $cId = $result[0]['VehicleId'];
 
         if ($num)
-            $sql = "SELECT `Battery". $num ."` FROM `Battery_Data_YX` WHERE `VehicleId`='". $cId ."' and `Day`='". $date ."'";
+            $sql = "SELECT `Battery". $num ."` FROM `battery_data_yx` WHERE `VehicleId`='". $cId ."' and `Day`='". $date ."'";
         else
-            $sql = "SELECT * FROM `Battery_Data_YX` WHERE `VehicleId`='". $cId ."' and `Day`='". $date ."'";
+            $sql = "SELECT * FROM `battery_data_yx` WHERE `VehicleId`='". $cId ."' and `Day`='". $date ."'";
         $query = $this->db->query($sql);
         $result = $query->result_array();
 
@@ -25,13 +25,13 @@ class Batteries extends CI_Model {
     }
 
     function query_package_data($name, $date, $batteryArr) {
-        $sql = "SELECT `VehicleId` FROM `Vehicle_Data_YX` WHERE `Name`='" . $name . "' and `Day`='" . $date . "'";
+        $sql = "SELECT `VehicleId` FROM `vehicle_data_yx` WHERE `Name`='" . $name . "' and `Day`='" . $date . "'";
         $query = $this->db->query($sql);
         $result = $query->result_array();
         $cId = $result[0]['VehicleId'];
 
         // 根据id到电池组表中进行选择
-        $sql = "SELECT * FROM `Package_Data_YX` WHERE `VehicleId`='". $cId ."' and `Number`='". $batteryArr ."' and `Day`='". $date ."'";
+        $sql = "SELECT * FROM `package_data_yx` WHERE `VehicleId`='". $cId ."' and `Number`='". $batteryArr ."' and `Day`='". $date ."'";
         $query = $this->db->query($sql);
         $result = $query->result_array();
 
@@ -43,7 +43,7 @@ class Batteries extends CI_Model {
 
     function query_vehicle_data($name, $date) {
         // TODO 是否更换为id查询
-        $sql = "SELECT * FROM `Vehicle_Data_YX` WHERE `Name`='" . $name . "' and `Day`='" . $date . "'";
+        $sql = "SELECT * FROM `vehicle_data_yx` WHERE `Name`='" . $name . "' and `Day`='" . $date . "'";
         $query = $this->db->query($sql);
         $result = $query->result_array();
 
@@ -56,17 +56,17 @@ class Batteries extends CI_Model {
     function query_date_info($con) {
         switch($con) {
             case 1:
-                $sql = "SELECT distinct `Day` FROM `Vehicle_Data_YX`";
+                $sql = "SELECT distinct `Day` FROM `vehicle_data_yx`";
                 $query = $this->db->query($sql);
                 $result = $query->result_array();
                 return $result;
             case 2:
-                $sql = "SELECT distinct `Day` FROM `Package_Data_YX`";
+                $sql = "SELECT distinct `Day` FROM `package_data_yx`";
                 $query = $this->db->query($sql);
                 $result = $query->result_array();
                 return $result;
             case 3:
-                $sql = "SELECT distinct `Day` FROM `Battery_Data_YX`";
+                $sql = "SELECT distinct `Day` FROM `battery_data_yx`";
                 $query = $this->db->query($sql);
                 $result = $query->result_array();
                 return $result;

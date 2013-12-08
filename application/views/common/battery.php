@@ -220,7 +220,6 @@ $(function() {
     $('#sub-btn').on('click', function(e) {
         var obj = hk.formCollect('battery-query'),
             flag = false;
-        console.log(obj);
 
         if (!$('#ele-car').val()) {
             alert('电动汽车不能为空！');
@@ -235,11 +234,15 @@ $(function() {
         // 是否显示旁边的标识
         $("div.y-cord").show();
         $("div.tab-t").show();
+
+        // 当显示电池组时需要显示两个分开的图片
+        if ($('#battery-arr').val() && !$('#signal-battery').val()) 
+            flag = true;
+
         if ($('#battery-arr').val()) {
             $("div.y-cord").hide();
             $("div.tab-t").hide();
-            flag = true;
-        } 
+        }
         
         if ($('#time-gap').val() !== "10分钟") {
             alert('请采用默认的10分钟间隔!')
@@ -254,16 +257,16 @@ $(function() {
             data: obj,
             method: 'post',
             success: function(msg) {
-                console.log(msg);
                 var obj = JSON.parse(msg);
                 if (obj.code == 100) {
                     alert('获取信息失败,请重新获取!');
                     return;
                 } else if (obj.code == 200) {
-                    document.getElementById('jpgraph').src = "<?php echo base_url();?>" + obj.msg;
+                    document.getElementById('jpgraph').src = "<?php echo base_url();?>" + obj.line[0];
 
-                    if (flag)
-                        $('#jpgraph').after("<img src='<?php echo base_url();?>"+ obj.msg2 +"' id='jpgraph_t'>");
+                    // 是否显示第二条曲线
+                    if (obj.line[1])
+                        $('#jpgraph').after("<img src='<?php echo base_url();?>"+ obj.line[1] +"' id='jpgraph_t'>");
                 }
             },
             error: function(msg) {

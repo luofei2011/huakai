@@ -32,7 +32,7 @@ hk.autoQueryInfo = function(cName, carNumber, batterArr, battery) {
                 var arr = data[val];
                 if (arr)
                     for (i = 0; len = arr.length, i < len; i++) 
-                        carNumber.append("<option value='Test Vehicle "+ (i + 1) +"'>"+ arr[i] +"</option>");
+                        carNumber.append("<option value='"+ arr[i] +"'>"+ arr[i] +"</option>");
             }, 'json');
         }
     });
@@ -45,8 +45,7 @@ hk.autoQueryInfo = function(cName, carNumber, batterArr, battery) {
         if (val) {
             $.get(batteries, function(data) {
                 //var arr = data[cName.val()];
-                var arr = ['Test Vehicle 1', 'Test Vehicle 2', 'Test Vehicle 3'];
-                if (arr && arr.indexOf(val) != -1) {
+                if (val) {
                     for (i = 1; i <=8; i++) 
                         batterArr.append("<option value='"+ i +"'>"+ i +"</option>");
                 }
@@ -88,9 +87,7 @@ hk.autoQueryInfo = function(cName, carNumber, batterArr, battery) {
             data: {'con': con},
             success: function(msg) {
                 var i, len;
-                console.log(msg);
                 msg = JSON.parse(msg);
-                console.log(msg);
 
                 if (msg.data)
                     for (i = 0; len = msg.data.length, i < len; i++) {

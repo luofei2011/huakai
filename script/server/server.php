@@ -83,7 +83,6 @@ do {
                         // 针对是否重复更新的问题,可以把已更新的文件ID和更新文件时间模块等绑定
                         // 针对更新补重复问题，建议每次更新的时候文件名上追加版本号！！！
                         if ($fExt== "s19" && !query_cid_is_updated($clientID, $fName)) {
-			    //TODO：file文件夹里无文件，或者存在已更新过的文件时，脚本101行会出错 ：Could not write output
                             // 有文件需要更新            
                             $isUpdate = "NEW VERSION " . $fName;
                             // 每次只更新一个文件,因此当遇到一个文件以后就退出当前循环
@@ -91,13 +90,14 @@ do {
                         }
                     }
                 }
-                if (!$fName) {
+
+                // 之前这里逻辑有问题，若不存在文件或者文件已经更新时，$isUpdate没有被赋值导致socket_write失败！
+                if (!$isUpdate)
                     $isUpdate = "NO UPDATE";
-                }
                 closedir($df);
             }
             $output = $isUpdate;
-	    print_screen(LOG_MSG, $output);
+	        print_screen(LOG_MSG, $output);
             socket_write($spawn, $output, strlen($output)) or die("Could not write output!\n");
         } else if (substr($input, 0, 3) == "END") {
             $output = "BYE";
