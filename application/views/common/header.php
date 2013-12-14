@@ -21,27 +21,65 @@
 				</div>
             </div>
             <div class="header-item">
-                <ul>
+                <ul class="header-ul">
                   <li>
                     <a href="<?php echo base_url();?>">首页</a>
                   </li>
                   <li>
-                    <a href="">产品中心</a>
+                    <a href="">走进华凯</a>
+                    <ul>
+                        <li>
+                        <a href="<?php echo base_url('intro/index/company_profile');?>">公司简介</a>
+                        </li>
+                        <li>
+                        <a href="<?php echo base_url('intro/index/company_event');?>">公司大事记</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url('intro/index/company_strategy');?>">发展战略</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url('intro/partners');?>">合作伙伴</a>
+                        </li>
+                    </ul>
                   </li>
                   <li>
-                    <a href="">诚聘英才</a>
+                    <a href="">新闻动态</a>
+                    <ul>
+                        <li>
+                            <a href="#">行业新闻</a>
+                        </li>
+                        <li>
+                            <a href="#">公司动态</a>
+                        </li>
+                    </ul>
                   </li>
                   <li>
-                    <a href="">联系我们</a>
+                    <a href="">技术与产品</a>
+                    <ul>
+                        <li>
+                        <a href="<?php echo base_url('intro/server_info');?>">S-BMS</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url('intro/car_net');?>">车联网</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url('battery');?>">电池数据分析</a>
+                        </li>
+                    </ul>
                   </li>
                   <li>
-                  <a href="<?php echo base_url('battery');?>">电池数据分析</a>
-                  </li>
-                  <li>
-                    <a href="https://huakaienergy.com/mail" target="_blank">电子邮件系统</a>
-                  </li>
-                  <li>
-                    <a href="https://huakaienergy.com" target="_blank">信息管理平台</a>
+                    <a href="https://huakaienergy.com/mail" target="_blank">服务支持</a>
+                    <ul>
+                        <li>
+                            <a href="#">售后</a>
+                        </li>
+                        <li>
+                        <a href="<?php echo base_url('intro/down');?>">下载中心</a>
+                        </li>
+                        <li>
+                            <a href="#">联系我们</a>
+                        </li>
+                    </ul>
                   </li>
                 </ul>
                 <div class="search">

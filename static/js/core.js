@@ -24,4 +24,9 @@ var hk = {
 
 // 首页图片自动切换
 $(function() {
+    $('ul.header-ul').children('li').hover(function() {
+        $('ul', $(this)).show();
+    }, function() {
+        $('ul', $(this)).hide();
+    });
 });

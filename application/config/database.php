@@ -54,7 +54,7 @@ $db['default']['password'] = '';
 $db['default']['database'] = 'battery_info';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
-$db['default']['pconnect'] = TRUE;
+$db['default']['pconnect'] = FALSE;
 $db['default']['db_debug'] = TRUE;             //部署之后关闭
 $db['default']['cache_on'] = FALSE;
 $db['default']['cachedir'] = '';
@@ -64,6 +64,25 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
+// 网站相关信息的数据库
+$active_group = 'huakai';
+$active_record = TRUE;
+
+$db['huakai']['hostname'] = 'localhost';
+$db['huakai']['username'] = 'root';
+$db['huakai']['password'] = '';
+$db['huakai']['database'] = 'huakai_info';
+$db['huakai']['dbdriver'] = 'mysql';
+$db['huakai']['dbprefix'] = '';
+$db['huakai']['pconnect'] = FALSE;
+$db['huakai']['db_debug'] = TRUE;             //部署之后关闭
+$db['huakai']['cache_on'] = FALSE;
+$db['huakai']['cachedir'] = '';
+$db['huakai']['char_set'] = 'utf8';
+$db['huakai']['dbcollat'] = 'utf8_general_ci';
+$db['huakai']['swap_pre'] = '';
+$db['huakai']['autoinit'] = TRUE;
+$db['huakai']['stricton'] = FALSE;
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */
