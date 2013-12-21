@@ -41,7 +41,7 @@ $(function() {
 <div class="intro-container clearfix">
     <div class="i-left">
         <div class="intro-title">
-            <a href="#">公司动态 >></a>
+            <a href="#">走进华凯 >></a>
             <hr/>
             <div class="item-content">
                 <img src="<?php echo base_url('static/img/b_1.jpg');?>" alt="">
@@ -50,7 +50,7 @@ $(function() {
     </div>
     <div class="i-right">
         <div class="intro-title">
-            <a href="#">产品中心 >></a>
+            <a href="#">技术与产品 >></a>
             <hr/>
             <div class="item-content">
                 <img src="<?php echo base_url('static/img/b_2.jpg');?>" alt="">
@@ -61,7 +61,7 @@ $(function() {
 <div class="intro-container clearfix">
     <div class="i-left">
         <div class="intro-title">
-            <a href="#">工程案例 >></a>
+            <a href="#">公司动态 >></a>
             <hr/>
             <div class="item-content">
                 <img src="<?php echo base_url('static/img/b_3.jpg');?>" alt="">
@@ -70,7 +70,7 @@ $(function() {
     </div>
     <div class="i-right">
         <div class="intro-title">
-            <a href="#">合作伙伴 >></a>
+            <a href="#">服务支持 >></a>
             <hr/>
             <div class="item-content">
                 <img src="<?php echo base_url('static/img/b_4.jpg');?>" alt="">

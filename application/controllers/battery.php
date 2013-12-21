@@ -2,14 +2,20 @@
 
 class Battery extends CI_Controller {
 
+    private $data = [];
+
     public function __construct() {
         parent::__construct();
         $this->load->helper('url');
         $this->load->model('Batteries');
+
+        // 该页面不显示logo
+        $this->data['header'] = true;
     }
 
     public function index() {
-        $this->load->view('common/header');
+        $this->data['title'] = "电池数据分析页面";
+        $this->load->view('common/header', $this->data);
         $this->load->view('common/jpgraph');
         $this->load->view('common/battery');
 		$this->load->view('common/footer');

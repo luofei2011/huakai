@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>哈尔滨华凯电能科技有限公司</title>
+    <title><?php echo $title;?></title>
     <link rel="stylesheet" href="<?php echo base_url('static/css/common.css');?>" />
     <link rel="stylesheet" href="<?php echo base_url('static/css/main.css');?>" />
     <script type="text/javascript" src="<?php echo base_url('static/js/jquery.js');?>"></script>
@@ -12,6 +12,9 @@
 <div class="wrapper">
     <div class="grid-1004">
         <div class="header">
+            <?php
+            if (!$header) {
+            ?>
             <div class="header-top">
                 <div class="company-name">
                     <p>哈尔滨华凯电能科技有限公司</p>
@@ -20,6 +23,7 @@
 				Better air quality, better life with eCars
 				</div>
             </div>
+            <?php } ?>
             <div class="header-item">
                 <ul class="header-ul">
                   <li>

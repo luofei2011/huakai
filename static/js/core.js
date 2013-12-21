@@ -11,7 +11,7 @@ var hk = {
      * */
     formCollect: function(formId) {
         var form = $('#' + formId),
-            vals = $('select, input', form),
+            vals = $('select, input, textarea', form),
             obj = {};
 
         vals.each(function() {

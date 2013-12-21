@@ -17,28 +17,28 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+    private $data = [];
 
     public function __construct() {
         parent::__construct();
         $this->load->helper('url');
+        $this->load->model('Cookie');
+
+        // 默认情况下显示logo
+        $this->data['header'] = false;
     }
 
 	public function index() {
-		$this->load->view('common/header');
+        $this->data['title'] = "哈尔滨华凯电能科技有限公司";
+		$this->load->view('common/header', $this->data);
 		$this->load->view('index');
 		$this->load->view('common/footer');
 	}
 
-    public function publish() {
-        $this->load->view('common/header');
-		$this->load->view('admin/publish');
-		$this->load->view('common/footer');
-    }
-
-    public function battery() {
-        $this->load->view('common/header');
-        $this->load->view('common/jpgraph');
-        $this->load->view('common/battery');
+    public function login() {
+        $this->data['title'] = "管理员登录界面";
+		$this->load->view('common/header', $this->data);
+		$this->load->view('admin/login');
 		$this->load->view('common/footer');
     }
 }
