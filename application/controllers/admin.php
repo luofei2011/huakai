@@ -61,6 +61,14 @@ class Admin extends CI_Controller {
     }
 
     /*
+     * 管理员退出功能
+     * */
+    public function logout() {
+        $this->Cookie->destroy_cookie();
+        redirect('/welcome/login', 'refresh');
+    }
+
+    /*
      * 保存新闻功能
      * */
     public function save_news() {

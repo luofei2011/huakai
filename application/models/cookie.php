@@ -13,5 +13,10 @@ class Cookie extends CI_Model {
 
         return $result ? true : false;
     }
+
+    public function destroy_cookie() {
+        setcookie('token', '', 0, '/');
+        setcookie('username', '', 0, '/');
+    }
 }
 ?>

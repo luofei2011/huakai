@@ -36,6 +36,17 @@ class Welcome extends CI_Controller {
 	}
 
     public function login() {
+        $token  = $this->input->cookie('token', true);
+        $un = $this->input->cookie('username', true);
+
+        if ($token && $un) {
+            $result = $this->Cookie->query_cookie_state($un, $token);
+
+            if ($result) {
+                redirect('/admin', 'refresh');
+            }
+        }
+
         $this->data['title'] = "管理员登录界面";
 		$this->load->view('common/header', $this->data);
 		$this->load->view('admin/login');
