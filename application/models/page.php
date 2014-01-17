@@ -13,5 +13,29 @@ class Page extends CI_Model {
 
         return $result ? $result[0][$name] : false;
     }
+
+    public function set_nav_main($arr) {
+        $result = $this->db->insert('nav_1', $arr);
+        return $result;
+    }
+
+    public function set_nav_second($arr) {
+        $result = $this->db->insert('nav_2', $arr);
+        return $result;
+    }
+
+    public function query_nav_main() {
+        $sql = "SELECT * FROM `nav_1`";
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
+        return $result;
+    }
+
+    public function query_nav_second($pid) {
+        $sql = "SELECT * FROM `nav_2` WHERE `pid` = '$pid'";
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
+        return $result;
+    }
 }
 ?>

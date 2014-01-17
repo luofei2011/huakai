@@ -1,0 +1,52 @@
+header {
+    margin-bottom: 20px;
+    background: #3f9fd9;
+    height: 50px;
+    line-height: 50px;
+}
+.header {
+    padding: 0 15px;
+    color: #fff;
+}
+.head-title {
+    font-size: 18px;
+    margin-left: 50px;
+}
+.head-logout {
+    float: right;
+}
+.head-logout a {
+    color: #fff;
+}
+.head-logout a:hover {
+    color: #fff;
+}
+.well {
+    padding: 9px 0;
+}
+.hk-nav, .sub-hk-nav {
+    border: 1px solid #bbb;
+    border-radius: 5px;
+}
+.row-fluid p {
+    border-bottom: 1px solid #eee;
+}
+.hk-con {
+    padding: 6px;
+}
+.save-container {
+    position: fixed;
+    width: 220px;
+    height: 60px;
+    line-height: 60px;
+    background: #fff;
+    top: 50%;
+    left: 50%;
+    margin-left: -110px;
+    z-index: 999;
+    display: none;
+}
+.save-container input {
+    width: 150px;
+    margin: 0 5px 0 2px;
+}

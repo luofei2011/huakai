@@ -18,6 +18,7 @@ class Admin extends CI_Controller {
         $this->load->helper('url');
         $this->load->model('Cookie');
         $this->load->model('News');
+        $this->load->model('Administrator');
 
         // 去掉header上的logo
         $this->data['header'] = true;
@@ -41,9 +42,12 @@ class Admin extends CI_Controller {
 
     // TODO 增加管理员后台界面
 	public function index() {
+        /*
         $this->data['title'] = "管理员后台界面";
 		$this->load->view('common/header', $this->data);
 		$this->load->view('index');
+         */
+        $this->load->view('admin/index');
 		$this->load->view('common/footer');
 	}
 
@@ -51,13 +55,15 @@ class Admin extends CI_Controller {
      * 管理员信息发布平台
      * */
     public function publish() {
+        /*
         $this->data['title'] = "新闻发布平台";
-        $msg = [];
-        $msg['category'] = $this->News->get_category();
 
         $this->load->view('common/header', $this->data);
+         */
+        $msg = [];
+        $msg['category'] = $this->News->get_category();
         $this->load->view('admin/publish', $msg);
-        $this->load->view('common/footer');
+        //$this->load->view('common/footer');
     }
 
     /*
@@ -68,6 +74,23 @@ class Admin extends CI_Controller {
         redirect('/welcome/login', 'refresh');
     }
 
+    public function manage($name) {
+        $this->load->view('admin/frameset/' . $name);
+    }
+
+    public function show_manage_category() {
+        $this->data['category'] = $this->Administrator->get_category();
+        $this->load->view('admin/frameset/category_edit', $this->data);
+    }
+
+    public function save_manage_category() {
+        $txt = $this->input->post('data', true);
+        if ($this->Administrator->set_category($txt)) {
+            echo "OK";
+        } else {
+            echo "ERROR";
+        }
+    }
     /*
      * 保存新闻功能
      * */

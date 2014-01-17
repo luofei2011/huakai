@@ -141,6 +141,8 @@ img {
     vertical-align: middle;
     border: 0;
 }
+.left{float: left;}
+.right{float: right;}
 .sticky { /* hack for ie */
     position: fixed;
     top: 0;

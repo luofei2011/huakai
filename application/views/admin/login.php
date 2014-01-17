@@ -14,12 +14,20 @@
 .text-center {
     text-align: center;
 }
+.login-title {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
 </style>
 <div class="login-container">
+    <div class="login-title">
+        <span>管理员登录</span>
+    </div>
     <form action="<?php echo base_url('login/index');?>">
         <div class="login-item">
             <label for="username">用户名：</label>
-            <input type="text" id="username">
+            <input type="text" id="username" placeholder="请输入用户名">
         </div>
         <div class="login-item">
             <label for="pwd">密码：</label>

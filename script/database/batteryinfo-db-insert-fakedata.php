@@ -3,7 +3,7 @@
 	require_once('db_config.php');
 	// 数据库连接
 	$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-	mysqli_set_charset($dbc, 'utf8'); //设置字符集, 避免中文乱码
+	//mysqli_set_charset($dbc, 'utf8'); //设置字符集, 避免中文乱码
 
 /************************ 整车相关数据 ******************************/
 	// 插入沂星1-3号车2012-12-10的数据
@@ -22,19 +22,19 @@
 /************************ 电池组相关数据 *****************************/
 	// 插入沂星1-3号车1-8号电池组2012-12-10的数据
 	for ($j=0; $j<3; $j++) {
-		for($i=1;$i<9;i++) {
+		for($i=1;$i<9;$i++) {
 			create_vehicleX_packageN_date($j+1, $i, "2012-12-10", $j);
 		}
 	}	
 	// 插入沂星1-3号车1-8号电池组2012-12-11的数据
 	for ($j=0; $j<3; $j++) {
-		for($i=1;$i<9;i++) {
+		for($i=1;$i<9;$i++) {
 			create_vehicleX_packageN_date($j+1, $i, "2012-12-11", $j);
 		}
 	}
 	// 插入沂星1-3号车1-8号电池组2012-12-12的数据
 	for ($j=0; $j<3; $j++) {
-		for($i=1;$i<9;i++) {
+		for($i=1;$i<9;$i++) {
 			create_vehicleX_packageN_date($j+1, $i, "2012-12-12", $j);
 		}
 	}

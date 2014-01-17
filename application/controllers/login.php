@@ -20,7 +20,7 @@ class Login extends CI_Controller {
         if ($result) {
             // 跳转到管理员界面
             //redirect('/admin', 'refresh');
-            echo "admin/publish";
+            echo "admin";
         } else {
             //return false;
             echo "false";

@@ -30,7 +30,7 @@
                     <a href="<?php echo base_url();?>">首页</a>
                   </li>
                   <li>
-                    <a href="">走进华凯</a>
+                    <a href="<?php echo base_url('intro/index/company_profile');?>">走进华凯</a>
                     <ul>
                         <li>
                         <a href="<?php echo base_url('intro/index/company_profile');?>">公司简介</a>
@@ -47,7 +47,7 @@
                     </ul>
                   </li>
                   <li>
-                    <a href="">新闻动态</a>
+                  <a href="<?php echo base_url('intro/page_frameset/1');?>">新闻动态</a>
                     <ul>
                         <li>
                             <a href="#">行业新闻</a>
@@ -58,7 +58,7 @@
                     </ul>
                   </li>
                   <li>
-                    <a href="">技术与产品</a>
+                    <a href="<?php echo base_url('intro/page_frameset/2');?>">技术与产品</a>
                     <ul>
                         <li>
                         <a href="<?php echo base_url('intro/server_info');?>">S-BMS</a>
@@ -72,7 +72,7 @@
                     </ul>
                   </li>
                   <li>
-                    <a href="https://huakaienergy.com/mail" target="_blank">服务支持</a>
+                    <a href="<?php echo base_url('intro/page_frameset/3');?>">服务支持</a>
                     <ul>
                         <li>
                             <a href="#">售后</a>
