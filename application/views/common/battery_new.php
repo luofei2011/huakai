@@ -154,8 +154,6 @@ input.date {
                     公司名称:
                 </span>
                 <select id="company-name" name="companyName">
-                    <option value="">请选择</option>
-                    <option value="众泰">众泰</option>
                     <option value="沂星">沂星</option>
                 </select>
             </div>
@@ -164,15 +162,22 @@ input.date {
                     电动汽车:
                 </span>
                 <select id="ele-car" name="eleCar">
-                    <option value="">请选择</option>
+                    <option value="哈尔滨1号车">哈尔滨1号车</option>
                 </select>
             </div>
             <div class="s-item">
                 <span class="select-label">
-                    电池组:
+                    模块号:
                 </span>
                 <select id="battery-arr" name="batteryArr">
                     <option value="">请选择</option>
+                    <?php
+                    foreach($mod_num as $mod) {
+                    ?>
+                    <option value="<?php echo $mod['mod_num'];?>"><?php echo $mod['mod_num'];?></option>
+                    <?php
+                    }
+                    ?>
                 </select>
             </div>
             <div class="s-item s-item-last">
@@ -234,21 +239,63 @@ input.date {
     <table class="c-table">
     </table>
 </div>
-<script type="text/javascript" src="<?php echo base_url('static/js/ajax_query.js');?>"></script>
 <script type="text/javascript">
 $(function() {
-    hk.autoQueryInfo("company-name", "ele-car", "battery-arr", "signal-battery");
-    $('#ele-car').on('change', function() {
-        if (this.value === "哈尔滨1号车") {
-            window.location.href = "<?php echo base_url('battery/new_page');?>";
-        }
+    function query_date() {
+        $.ajax({
+            url: '<?php echo base_url("battery/query_date_new");?>',
+            data: {mod_num: $('#battery-arr').val(), battery_id: $('#signal-battery').val()},
+            method: 'post',
+            success: function(msg) {
+                var d = JSON.parse(msg),
+                    i = 0, len = d.length,tmp,
+                    day = $('#col-date');
+
+                day.html("<option value=''>请选择</option>");
+                for(; i < len; i++) {
+                    tmp = d[i];
+                    day.append("<option value='"+tmp.day+"'>"+tmp.day+"</option>");
+                }
+            }
+        });
+    }
+
+    $('#signal-battery').on('change', query_date);
+
+    $('#battery-arr').on('change', function() {
+        query_date();
+        $.ajax({
+            url: '<?php echo base_url("battery/query_battery_in_mod");?>',
+            data: {mod_num: this.value},
+            method: 'post',
+            success: function(msg) {
+                var info = JSON.parse(msg),
+                    i = 0, len = info.length,
+                    tmp,
+                    s = $('#signal-battery');
+
+                s.empty();
+                s.append("<option value=''>请选择</option>");
+                for(; i < len; i++) {
+                    tmp = info[i];
+                    s.append("<option value='" + tmp.battery_id + "'>"+tmp.battery_id+"</option>");
+                }
+            }
+        });
     });
+
     $('#sub-btn').on('click', function(e) {
         var obj = hk.formCollect('battery-query'),
             flag = false;
+        obj.new = true;
 
         if (!$('#ele-car').val()) {
             alert('电动汽车不能为空！');
+            return false;
+        }
+
+        if (!$('#battery-arr').val()) {
+            alert('电池组不能为空！');
             return false;
         }
 
@@ -299,6 +346,7 @@ $(function() {
                         // 该属性不用显示在表格数据界面
                         delete data.Id;
                         delete data.VehicleId;
+                        console.log(data);
                         html += "<thead><tr>";
                         for(var item in data) {
                             html += "<td><span>" + item  + "</span></td>";

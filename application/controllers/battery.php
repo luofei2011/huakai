@@ -21,6 +21,16 @@ class Battery extends CI_Controller {
 		$this->load->view('common/footer');
     }
 
+    public function new_page() {
+        $arr = [];
+        $arr["mod_num"] = $this->query_mod_idx();
+        $this->data['title'] = "电池数据分析页面";
+        $this->load->view('common/header', $this->data);
+        $this->load->view('common/jpgraph');
+        $this->load->view('common/battery_new', $arr);
+		$this->load->view('common/footer');
+    }
+
 	public function ajax_s() {
         $cName = $this->input->post('companyName');
         $eleCar = $this->input->post('eleCar');
@@ -28,6 +38,7 @@ class Battery extends CI_Controller {
         $signalBattery = $this->input->post('signalBattery');
         $colDate = $this->input->post('colDate');
         $timeGap = $this->input->post('timeGap');
+        $new = $this->input->post('new');
 
         if (!$cName || !$eleCar) {
             echo json_encode(array(
@@ -73,20 +84,32 @@ class Battery extends CI_Controller {
             ));
             echo json_encode(array(
                 "code" => 200,
-                "line" => array($r, $r_t)
+                "line" => array($r, $r_t),
+                "data" => $result
             ));
         }
 
         // 显示电池组数据
         if ($batteryArr && !$signalBattery) {
-            $result = $this->Batteries->query_package_data($eleCar, $colDate, $batteryArr);
-            //Y轴数据
-            $ydata1 = array_merge(explode(";", $result['Temperature1']));
-            $ydata2 = array_merge(explode(";", $result['Temperature2']));
-            $ydata3 = array_merge(explode(";", $result['Temperature3']));
-            $ydata4 = array_merge(explode(";", $result['Temperature4']));
-            $ydata5 = array_merge(explode(";", $result['Temperature5']));
-            $ydata6 = array_merge(explode(";", $result['Temperature6']));
+            if (!$new) {
+                $result = $this->Batteries->query_package_data($eleCar, $colDate, $batteryArr);
+                //Y轴数据
+                $ydata1 = array_merge(explode(";", $result['Temperature1']));
+                $ydata2 = array_merge(explode(";", $result['Temperature2']));
+                $ydata3 = array_merge(explode(";", $result['Temperature3']));
+                $ydata4 = array_merge(explode(";", $result['Temperature4']));
+                $ydata5 = array_merge(explode(";", $result['Temperature5']));
+                $ydata6 = array_merge(explode(";", $result['Temperature6']));
+            } else {
+                $result = $this->Batteries->query_package_data_new($colDate, $batteryArr);
+                //Y轴数据
+                $ydata1 = array_merge(explode(";", $result['t1']));
+                $ydata2 = array_merge(explode(";", $result['t2']));
+                $ydata3 = array_merge(explode(";", $result['t3']));
+                $ydata4 = array_merge(explode(";", $result['t4']));
+                $ydata5 = array_merge(explode(";", $result['t5']));
+                $ydata6 = array_merge(explode(";", $result['t6']));
+            }
             $r1 = $this->jpgraph(
                 array(
                     "width" => 440,
@@ -104,12 +127,21 @@ class Battery extends CI_Controller {
                     "#369"
             ));
 
-            $result = $this->Batteries->query_battery_data($eleCar, $colDate);
-            $b_ = array();
-            $idx = (intval($batteryArr) - 1) * 22;
-            for ($i = 1; $i <= 22; $i++) {
-                $b_[$i - 1] = array();
-                $b_[$i - 1] = array_merge(explode(";", $result['Battery' . strval($idx + $i)]));
+            if (!$new) {
+                $result = $this->Batteries->query_battery_data($eleCar, $colDate);
+                $b_ = array();
+                $idx = (intval($batteryArr) - 1) * 22;
+                for ($i = 1; $i <= 22; $i++) {
+                    $b_[$i - 1] = array();
+                    $b_[$i - 1] = array_merge(explode(";", $result['Battery' . strval($idx + $i)]));
+                }
+            } else {
+                $result = $this->Batteries->query_battery_data_new($batteryArr, $colDate);
+                $b_ = [];
+                foreach($result as $item) {
+                    $b_[$item['battery_id']] = [];
+                    $b_[$item['battery_id']] = array_merge(explode(";", $item['voltage']));
+                }
             }
             //var_dump($b_);
             //return;
@@ -126,16 +158,23 @@ class Battery extends CI_Controller {
 
             echo json_encode(array(
                 "code" => 200,
-                "line" => array($r2, $r1)
+                "line" => array($r2, $r1),
+                "data" => $result
             ));
         }
 
         // 显示单体电池数据
         if ($signalBattery) {
-            $result = $this->Batteries->query_battery_data($eleCar, $colDate, $signalBattery);
-            //Y轴数据
-            $b_ = $result['Battery' . $signalBattery];
-            $ydata = array_merge(explode(";", $b_));
+            if (!$new) {
+                $result = $this->Batteries->query_battery_data($eleCar, $colDate, $signalBattery);
+                //Y轴数据
+                $b_ = $result['Battery' . $signalBattery];
+                $ydata = array_merge(explode(";", $b_));
+            } else {
+                $result = $this->Batteries->query_battery_data_new($batteryArr, $colDate, $signalBattery);
+                $b_ = $result[0]['voltage'];
+                $ydata = array_merge(explode(";", $b_));
+            }
             $r = $this->jpgraph(
                 array(
                     "width" => 900,
@@ -151,7 +190,8 @@ class Battery extends CI_Controller {
 
             echo json_encode(array(
                 "code" => 200,
-                "line" => array($r)
+                "line" => array($r),
+                "data" => $result
             ));
         }
 	}
@@ -223,5 +263,24 @@ class Battery extends CI_Controller {
         $graph->Stroke($dir);
 
         return $dir;
+    }
+
+    public function query_battery_in_mod() {
+        $mod_num = $this->input->post('mod_num');
+        $battery_id = [];
+        if ($mod_num)
+            $battery_id = $this->Batteries->query_battery_in_mod($mod_num);
+        echo json_encode($battery_id);
+    }
+
+    public function query_date_new() {
+        $mod_num = $this->input->post('mod_num');
+        $battery_id = $this->input->post('battery_id');
+        $date = $this->Batteries->query_date_new($mod_num, $battery_id);
+        echo json_encode($date);
+    }
+
+    private function query_mod_idx() {
+        return $this->Batteries->query_mod_idx();
     }
 }
