@@ -123,6 +123,7 @@ class Analyze {
         // 得到具体数据
         $s = substr($data, 4, 12);
         $arr = str_split($s, $l);
+        $arr = $this->create_correct_hex($arr);
         // 各种数据
         switch($m) {
             case "电压":
@@ -143,6 +144,33 @@ class Analyze {
                 array_push($this->mode_data_tmp[$mod_id], $arr);
                 break;
         }
+    }
+
+    protected function create_correct_hex($arr) {
+        $result = [];
+        foreach($arr as $d) {
+            array_push($result, $this->is_hex($d));
+        }
+        return $result;
+    }
+
+    protected function is_hex($str) {
+        $len = strlen($str);
+        $is_correct = true;
+        $re = "";
+        for($i = 0; $i < $len; $i++) {
+            if (!(($str[$i] >= '0' && $str[$i] <= '9') || ($str[$i] >= 'A' && $str[$i] <= 'F'))) {
+                $is_correct = false;
+                break;
+            }
+        }
+        if (!$is_correct) {
+            for($i = 0; $i < $len; $i++) {
+                $re .= "0";
+            }
+            return $re;
+        }  
+        return $str;
     }
 
     protected function hex_dec_tmp($arr) {

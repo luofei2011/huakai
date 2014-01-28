@@ -48,7 +48,7 @@ class Battery extends CI_Controller {
         }
 
         // 显示整车数据
-        if (!$batteryArr && !$signalBattery) {
+        if (!$batteryArr && !strlen($signalBattery)) {
             $result = $this->Batteries->query_vehicle_data($eleCar, $colDate);
             //Y轴数据
             $ydata2 = explode(";", $result["Voltage"]);
@@ -90,7 +90,7 @@ class Battery extends CI_Controller {
         }
 
         // 显示电池组数据
-        if ($batteryArr && !$signalBattery) {
+        if ($batteryArr && !strlen($signalBattery)) {
             if (!$new) {
                 $result = $this->Batteries->query_package_data($eleCar, $colDate, $batteryArr);
                 //Y轴数据
@@ -164,7 +164,7 @@ class Battery extends CI_Controller {
         }
 
         // 显示单体电池数据
-        if ($signalBattery) {
+        if (strlen($signalBattery)) {
             if (!$new) {
                 $result = $this->Batteries->query_battery_data($eleCar, $colDate, $signalBattery);
                 //Y轴数据
