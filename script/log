@@ -1,0 +1,853 @@
+
+Warning: PHP Startup: Unable to load dynamic library '/opt/lampp/lib/php/extensions/no-debug-non-zts-20121212/php_gd2.dll' - /opt/lampp/lib/php/extensions/no-debug-non-zts-20121212/php_gd2.dll: cannot open shared object file: No such file or directory in Unknown on line 0
+
+Notice: Undefined index: 0A in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 0A in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 0E in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 0E in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 0D in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 0D in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined offset: 10 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined offset: 10 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',0,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',1,'2013-11-15','3.889')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',2,'2013-11-15','3.889')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',3,'2013-11-15','3.894')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',4,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',5,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',6,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',7,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',8,'2013-11-15','3.87')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',0,'2013-11-15','3.882')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',1,'2013-11-15','3.904')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',2,'2013-11-15','3.904')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',3,'2013-11-15','3.894')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',4,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',5,'2013-11-15','3.904')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',6,'2013-11-15','3.895')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',7,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',8,'2013-11-15','3.871')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',0,'2013-11-15','3.897')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',1,'2013-11-15','3.907')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',2,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',3,'2013-11-15','3.897')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',4,'2013-11-15','3.904')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',5,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',6,'2013-11-15','3.906')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',7,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',8,'2013-11-15','3.868')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',0,'2013-11-15','3.894')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',1,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',2,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',3,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',4,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',5,'2013-11-15','3.895')
+
+Notice: Undefined offset: 10 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined offset: 11 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 0F in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined offset: 11 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 0F in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 00 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 01 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 01 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',6,'2013-11-15','3.897')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',7,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',8,'2013-11-15','3.859')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',0,'2013-11-15','3.894')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',1,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',2,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',3,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',4,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',5,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',6,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',7,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',8,'2013-11-15','3.87')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',0,'2013-11-15','3.895')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',1,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',2,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',3,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',4,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',5,'2013-11-15','3.895')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',6,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',7,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',8,'2013-11-15','3.867')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',0,'2013-11-15','3.895')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',1,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',2,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',3,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',4,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',5,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',6,'2013-11-15','3.888')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',7,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',8,'2013-11-15','3.868')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',0,'2013-11-15','3.891')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',1,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',2,'2013-11-15','3.895')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',3,'2013-11-15','3.892')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',4,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',5,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',6,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',7,'2013-11-15','3.897')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',8,'2013-11-15','3.864')
+
+Notice: Undefined index: 00 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 04 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 04 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 03 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 03 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 06 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 06 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 07 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 05 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','04',0,'2013-11-15','3.891')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','04',1,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','04',2,'2013-11-15','3.904')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','04',3,'2013-11-15','3.894')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','04',4,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','04',5,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','04',6,'2013-11-15','3.892')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','04',7,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','04',8,'2013-11-15','3.862')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',0,'2013-11-15','3.924')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',1,'2013-11-15','3.837')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',2,'2013-11-15','3.93')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',3,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',4,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',5,'2013-11-15','3.91')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',6,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',7,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',8,'2013-11-15','3.856')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',0,'2013-11-15','3.891')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',1,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',2,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',3,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',4,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',5,'2013-11-15','3.904')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',6,'2013-11-15','3.904')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',7,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',8,'2013-11-15','3.868')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','07',0,'2013-11-15','3.897')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','07',1,'2013-11-15','3.895')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','07',2,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',0,'2013-11-15','3.895')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',1,'2013-11-15','3.895')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',2,'2013-11-15','3.901')
+
+Notice: Undefined index: 05 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 07 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 07 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 05 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 08 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 08 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 0A in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 0A in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 0B in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',3,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',4,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',5,'2013-11-15','3.886')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',6,'2013-11-15','3.895')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',7,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',8,'2013-11-15','3.858')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','07',3,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','07',4,'2013-11-15','3.906')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','07',5,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','07',6,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','07',7,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','07',8,'2013-11-15','3.867')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',0,'2013-11-15','3.882')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',1,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',2,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',3,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',4,'2013-11-15','3.906')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',5,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',6,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',7,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',8,'2013-11-15','3.862')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',0,'2013-11-15','3.897')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',1,'2013-11-15','3.895')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',2,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',3,'2013-11-15','3.909')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',4,'2013-11-15','3.904')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',5,'2013-11-15','3.91')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',6,'2013-11-15','3.895')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',7,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',8,'2013-11-15','3.867')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',0,'2013-11-15','3.892')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',1,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',2,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',3,'2013-11-15','3.904')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',4,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',5,'2013-11-15','3.913')
+
+Notice: Undefined index: 0B in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 0B in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 0C in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 0C in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',6,'2013-11-15','3.885')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',7,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',8,'2013-11-15','3.868')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',0,'2013-11-15','3.895')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',1,'2013-11-15','3.906')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',2,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',3,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',4,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',5,'2013-11-15','3.904')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',6,'2013-11-15','3.906')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',7,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',8,'2013-11-15','3.867')
+存在非法数据, 已跳过插入！
+
+Notice: Undefined index: 0E in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 0E in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 0F in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 0F in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined offset: 10 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined offset: 10 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined offset: 11 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined offset: 11 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',0,'2013-11-15','3.886')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',1,'2013-11-15','3.892')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',2,'2013-11-15','3.904')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',3,'2013-11-15','3.897')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',4,'2013-11-15','3.897')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',5,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',6,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',7,'2013-11-15','3.897')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',8,'2013-11-15','3.867')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',0,'2013-11-15','3.894')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',1,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',2,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',3,'2013-11-15','3.895')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',4,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',5,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',6,'2013-11-15','3.894')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',7,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',8,'2013-11-15','3.868')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',0,'2013-11-15','3.894')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',1,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',2,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',3,'2013-11-15','3.895')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',4,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',5,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',6,'2013-11-15','3.906')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',7,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',8,'2013-11-15','3.859')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',0,'2013-11-15','3.895')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',1,'2013-11-15','3.897')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',2,'2013-11-15','3.904')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',3,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',4,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',5,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',6,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',7,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',8,'2013-11-15','3.871')
+
+Notice: Undefined index: 00 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 00 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 01 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 01 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 02 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 04 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 04 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',0,'2013-11-15','3.897')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',1,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',2,'2013-11-15','3.897')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',3,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',4,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',5,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',6,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',7,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',8,'2013-11-15','3.874')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',0,'2013-11-15','3.895')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',1,'2013-11-15','3.897')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',2,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',3,'2013-11-15','3.897')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',4,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',5,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',6,'2013-11-15','3.895')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',7,'2013-11-15','3.897')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',8,'2013-11-15','3.862')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',0,'2013-11-15','3.858')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',1,'2013-11-15','3.895')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',2,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',3,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',4,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',5,'2013-11-15','3.906')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',6,'2013-11-15','3.897')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',7,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',8,'2013-11-15','3.864')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','04',0,'2013-11-15','3.889')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','04',1,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','04',2,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','04',3,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','04',4,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','04',5,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','04',6,'2013-11-15','3.889')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','04',7,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','04',8,'2013-11-15','3.862')
+
+Notice: Undefined index: 02 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 05 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 05 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 03 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 03 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 06 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 06 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 08 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 08 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',0,'2013-11-15','3.894')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',1,'2013-11-15','3.892')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',2,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',3,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',4,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',5,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',6,'2013-11-15','3.895')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',7,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',8,'2013-11-15','3.861')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',0,'2013-11-15','3.922')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',1,'2013-11-15','3.838')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',2,'2013-11-15','3.931')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',3,'2013-11-15','3.894')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',4,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',5,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',6,'2013-11-15','3.906')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',7,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',8,'2013-11-15','3.864')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',0,'2013-11-15','3.895')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',1,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',2,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',3,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',4,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',5,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',6,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',7,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',8,'2013-11-15','3.867')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',0,'2013-11-15','3.88')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',1,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',2,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',3,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',4,'2013-11-15','3.904')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',5,'2013-11-15','3.903')
+
+Notice: Undefined index: 08 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 0A in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 0A in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 0D in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 0D in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 0C in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 0E in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',6,'2013-11-15','3.907')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',7,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',8,'2013-11-15','3.856')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',0,'2013-11-15','3.897')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',1,'2013-11-15','3.897')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',2,'2013-11-15','3.895')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',3,'2013-11-15','3.894')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',4,'2013-11-15','3.904')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',5,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',6,'2013-11-15','3.894')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',7,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',8,'2013-11-15','3.868')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',0,'2013-11-15','3.895')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',1,'2013-11-15','3.906')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',2,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',3,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',4,'2013-11-15','3.904')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',5,'2013-11-15','3.907')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',6,'2013-11-15','3.909')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',7,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',8,'2013-11-15','3.867')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',0,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',1,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',2,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',3,'2013-11-15','3.904')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',4,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',5,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',6,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',7,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',8,'2013-11-15','3.864')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',0,'2013-11-15','3.885')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',1,'2013-11-15','3.897')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',2,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',3,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',4,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',5,'2013-11-15','3.903')
+
+Notice: Undefined index: 0E in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 0E in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 0C in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',6,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',7,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',8,'2013-11-15','3.87')
+存在非法数据, 已跳过插入！
+
+Notice: Undefined offset: 10 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined offset: 11 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined offset: 10 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined offset: 11 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 00 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 00 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 01 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',0,'2013-11-15','3.871')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',1,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',2,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',3,'2013-11-15','3.877')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',4,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',5,'2013-11-15','3.877')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',6,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',7,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',8,'2013-11-15','3.837')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',0,'2013-11-15','3.868')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',1,'2013-11-15','3.883')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',2,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',3,'2013-11-15','3.877')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',4,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',5,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',6,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',7,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',8,'2013-11-15','3.847')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',0,'2013-11-15','3.865')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',1,'2013-11-15','3.871')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',2,'2013-11-15','3.874')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',3,'2013-11-15','3.876')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',4,'2013-11-15','3.873')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',5,'2013-11-15','3.87')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',6,'2013-11-15','3.873')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',7,'2013-11-15','3.877')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',8,'2013-11-15','3.85')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',0,'2013-11-15','3.873')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',1,'2013-11-15','3.871')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',2,'2013-11-15','3.877')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',3,'2013-11-15','3.87')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',4,'2013-11-15','3.873')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',5,'2013-11-15','3.871')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',6,'2013-11-15','3.88')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',7,'2013-11-15','3.873')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',8,'2013-11-15','3.837')
+
+Notice: Undefined index: 02 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 01 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 03 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 02 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 03 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 06 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 06 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 07 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 07 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',0,'2013-11-15','3.84')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',1,'2013-11-15','3.856')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',2,'2013-11-15','3.88')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',3,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',4,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',5,'2013-11-15','3.883')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',6,'2013-11-15','3.877')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',7,'2013-11-15','3.877')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',8,'2013-11-15','3.841')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',0,'2013-11-15','3.9')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',1,'2013-11-15','3.808')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',2,'2013-11-15','3.904')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',3,'2013-11-15','3.877')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',4,'2013-11-15','3.874')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',5,'2013-11-15','3.877')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',6,'2013-11-15','3.874')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',7,'2013-11-15','3.877')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',8,'2013-11-15','3.831')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',0,'2013-11-15','3.874')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',1,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',2,'2013-11-15','3.886')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',3,'2013-11-15','3.882')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',4,'2013-11-15','3.885')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',5,'2013-11-15','3.888')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',6,'2013-11-15','3.889')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',7,'2013-11-15','3.882')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',8,'2013-11-15','3.849')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','07',0,'2013-11-15','3.877')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','07',1,'2013-11-15','3.876')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','07',2,'2013-11-15','3.882')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','07',3,'2013-11-15','3.88')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','07',4,'2013-11-15','3.888')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','07',5,'2013-11-15','3.891')
+
+Notice: Undefined index: 07 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 09 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 09 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 0A in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 0B in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 0A in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 0B in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','07',6,'2013-11-15','3.886')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','07',7,'2013-11-15','3.882')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','07',8,'2013-11-15','3.849')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','09',0,'2013-11-15','3.873')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','09',1,'2013-11-15','3.882')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','09',2,'2013-11-15','3.885')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','09',3,'2013-11-15','3.883')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','09',4,'2013-11-15','3.888')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','09',5,'2013-11-15','3.885')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','09',6,'2013-11-15','3.883')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','09',7,'2013-11-15','3.88')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','09',8,'2013-11-15','3.847')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',0,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',1,'2013-11-15','3.882')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',2,'2013-11-15','3.885')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',3,'2013-11-15','3.877')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',4,'2013-11-15','3.883')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',5,'2013-11-15','3.88')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',6,'2013-11-15','3.883')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',7,'2013-11-15','3.88')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',8,'2013-11-15','3.846')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',0,'2013-11-15','3.873')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',1,'2013-11-15','3.874')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',2,'2013-11-15','3.886')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',3,'2013-11-15','3.877')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',4,'2013-11-15','3.883')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',5,'2013-11-15','3.88')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',6,'2013-11-15','3.874')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',7,'2013-11-15','3.883')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',8,'2013-11-15','3.855')
+
+Notice: Undefined index: 0E in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 0E in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined offset: 10 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined offset: 10 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined offset: 11 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 0F in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined offset: 11 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 0F in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',0,'2013-11-15','3.862')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',1,'2013-11-15','3.874')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',2,'2013-11-15','3.883')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',3,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',4,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',5,'2013-11-15','3.883')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',6,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',7,'2013-11-15','3.877')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',8,'2013-11-15','3.844')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',0,'2013-11-15','3.874')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',1,'2013-11-15','3.882')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',2,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',3,'2013-11-15','3.874')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',4,'2013-11-15','3.882')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',5,'2013-11-15','3.883')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',6,'2013-11-15','3.882')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',7,'2013-11-15','3.885')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',8,'2013-11-15','3.84')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',0,'2013-11-15','3.873')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',1,'2013-11-15','3.883')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',2,'2013-11-15','3.883')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',3,'2013-11-15','3.88')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',4,'2013-11-15','3.883')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',5,'2013-11-15','3.883')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',6,'2013-11-15','3.883')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',7,'2013-11-15','3.882')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',8,'2013-11-15','3.849')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',0,'2013-11-15','3.871')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',1,'2013-11-15','3.88')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',2,'2013-11-15','3.886')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',3,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',4,'2013-11-15','3.885')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',5,'2013-11-15','3.877')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',6,'2013-11-15','3.88')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',7,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',8,'2013-11-15','3.849')
+
+Notice: Undefined index: 00 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 00 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',0,'2013-11-15','3.873')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',1,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',2,'2013-11-15','3.877')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',3,'2013-11-15','3.877')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',4,'2013-11-15','3.877')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',5,'2013-11-15','3.876')
+存在非法数据, 已跳过插入！
+
+Notice: Undefined index: 00 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 00 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 02 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 02 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 01 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 03 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 03 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 01 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',0,'2013-11-15','3.912')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',1,'2013-11-15','3.918')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',2,'2013-11-15','3.922')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',3,'2013-11-15','3.913')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',4,'2013-11-15','3.916')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',5,'2013-11-15','3.909')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',6,'2013-11-15','3.922')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',7,'2013-11-15','3.921')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','00',8,'2013-11-15','3.891')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',0,'2013-11-15','3.883')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',1,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',2,'2013-11-15','3.919')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',3,'2013-11-15','3.916')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',4,'2013-11-15','3.916')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',5,'2013-11-15','3.927')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',6,'2013-11-15','3.916')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',7,'2013-11-15','3.918')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','02',8,'2013-11-15','3.888')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',0,'2013-11-15','3.906')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',1,'2013-11-15','3.919')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',2,'2013-11-15','3.918')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',3,'2013-11-15','3.909')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',4,'2013-11-15','3.919')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',5,'2013-11-15','3.919')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',6,'2013-11-15','3.919')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',7,'2013-11-15','3.915')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','01',8,'2013-11-15','3.88')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',0,'2013-11-15','3.937')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',1,'2013-11-15','3.852')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',2,'2013-11-15','3.943')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',3,'2013-11-15','3.919')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',4,'2013-11-15','3.913')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',5,'2013-11-15','3.921')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',6,'2013-11-15','3.915')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',7,'2013-11-15','3.915')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','03',8,'2013-11-15','3.873')
+
+Notice: Undefined index: 05 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 06 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 06 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 05 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 08 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 08 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 0A in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',0,'2013-11-15','3.909')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',1,'2013-11-15','3.913')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',2,'2013-11-15','3.91')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',3,'2013-11-15','3.918')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',4,'2013-11-15','3.916')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',5,'2013-11-15','3.891')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',6,'2013-11-15','3.913')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',7,'2013-11-15','3.913')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','05',8,'2013-11-15','3.883')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',0,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',1,'2013-11-15','3.91')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',2,'2013-11-15','3.916')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',3,'2013-11-15','3.91')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',4,'2013-11-15','3.912')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',5,'2013-11-15','3.915')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',6,'2013-11-15','3.916')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',7,'2013-11-15','3.91')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','06',8,'2013-11-15','3.883')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',0,'2013-11-15','3.892')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',1,'2013-11-15','3.913')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',2,'2013-11-15','3.909')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',3,'2013-11-15','3.913')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',4,'2013-11-15','3.916')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',5,'2013-11-15','3.912')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',6,'2013-11-15','3.91')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',7,'2013-11-15','3.918')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','08',8,'2013-11-15','3.874')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',0,'2013-11-15','3.912')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',1,'2013-11-15','3.916')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',2,'2013-11-15','3.918')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',3,'2013-11-15','3.907')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',4,'2013-11-15','3.919')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',5,'2013-11-15','3.931')
+
+Notice: Undefined index: 0A in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 0A in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 0B in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 0B in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 0C in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 0C in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 0D in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined index: 0D in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 0E in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',6,'2013-11-15','3.913')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',7,'2013-11-15','3.919')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0A',8,'2013-11-15','3.885')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',0,'2013-11-15','3.906')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',1,'2013-11-15','3.915')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',2,'2013-11-15','3.918')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',3,'2013-11-15','3.912')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',4,'2013-11-15','3.918')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',5,'2013-11-15','3.918')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',6,'2013-11-15','3.916')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',7,'2013-11-15','3.915')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0B',8,'2013-11-15','3.882')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',0,'2013-11-15','3.909')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',1,'2013-11-15','3.915')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',2,'2013-11-15','3.919')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',3,'2013-11-15','3.924')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',4,'2013-11-15','3.916')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',5,'2013-11-15','3.916')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',6,'2013-11-15','3.91')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',7,'2013-11-15','3.915')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0C',8,'2013-11-15','3.88')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',0,'2013-11-15','3.903')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',1,'2013-11-15','3.921')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',2,'2013-11-15','3.916')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',3,'2013-11-15','3.916')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',4,'2013-11-15','3.919')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',5,'2013-11-15','3.925')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',6,'2013-11-15','3.924')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',7,'2013-11-15','3.918')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0D',8,'2013-11-15','3.879')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',0,'2013-11-15','3.901')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',1,'2013-11-15','3.913')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',2,'2013-11-15','3.916')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',3,'2013-11-15','3.91')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',4,'2013-11-15','3.915')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',5,'2013-11-15','3.921')
+
+Notice: Undefined index: 0E in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 0E in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined offset: 10 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined offset: 10 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 0F in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined offset: 11 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+
+Notice: Undefined offset: 11 in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 0F in /opt/lampp/htdocs/huakai/script/analyze.php on line 145
+
+Notice: Undefined index: 00 in /opt/lampp/htdocs/huakai/script/analyze.php on line 132
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',6,'2013-11-15','3.913')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',7,'2013-11-15','3.912')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0E',8,'2013-11-15','3.882')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',0,'2013-11-15','3.909')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',1,'2013-11-15','3.916')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',2,'2013-11-15','3.912')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',3,'2013-11-15','3.915')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',4,'2013-11-15','3.916')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',5,'2013-11-15','3.919')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',6,'2013-11-15','3.918')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',7,'2013-11-15','3.918')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','10',8,'2013-11-15','3.874')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',0,'2013-11-15','3.907')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',1,'2013-11-15','3.91')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',2,'2013-11-15','3.913')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',3,'2013-11-15','3.915')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',4,'2013-11-15','3.91')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',5,'2013-11-15','3.898')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',6,'2013-11-15','3.915')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',7,'2013-11-15','3.912')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','0F',8,'2013-11-15','3.874')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',0,'2013-11-15','3.907')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',1,'2013-11-15','3.91')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',2,'2013-11-15','3.912')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',3,'2013-11-15','3.919')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',4,'2013-11-15','3.916')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',5,'2013-11-15','3.915')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',6,'2013-11-15','3.916')
+INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','11',7,'2013-11-15','3.913')

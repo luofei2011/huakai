@@ -4,11 +4,13 @@ class Analyze {
     protected $frame;
     protected $mode_data_vol = [];
     protected $mode_data_tmp = [];
+    protected $date;
 
     public function __construct() {
         require_once('database/db_config.php');
         $args = func_get_args();
         $this->frame = $args[0];
+        $this->date = $args[1];
 
         // 数据库配置
         $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
@@ -20,18 +22,17 @@ class Analyze {
         foreach($arr as $item) {
             $this->category_data($item);
         }
-        $date = date('Y-m-d');
         // 存储电压数据
         if ($this->mode_data_vol) {
             foreach(array_keys($this->mode_data_vol) as $item) {
                 foreach(array_keys($this->mode_data_vol[$item]) as $id) {
-                    $sql = "SELECT `voltage` FROM `Battery_Data` WHERE `vehicle_id`='0' and `mod_num`='$item' and `battery_id`='$id' and `day`='$date'";
+                    $sql = "SELECT `voltage` FROM `Battery_Data` WHERE `vehicle_id`='0' and `mod_num`='$item' and `battery_id`='$id' and `day`='$this->date'";
                     $value = $this->query_is_stored($sql);
                     $vol = $this->mode_data_vol[$item][$id];
-                    $query = "INSERT INTO `Battery_Data` values('','0','$item',$id,'$date','$vol')";
+                    $query = "INSERT INTO Battery_Data(vehicle_id,mod_num,battery_id,day,voltage) values('0','$item',$id,'$this->date','$vol')";
                     if (strlen($value[0])) {
                         $vol = $value[0] . ";" . $vol;
-                        $query = "UPDATE `Battery_Data` SET `voltage`='$vol' WHERE `vehicle_id`='0' and `mod_num`='$item' and `battery_id`='$id' and `day`='$date'";
+                        $query = "UPDATE `Battery_Data` SET `voltage`='$vol' WHERE `vehicle_id`='0' and `mod_num`='$item' and `battery_id`='$id' and `day`='$this->date'";
                     }
                     $result = mysqli_query($dbc, $query);
                 }
@@ -42,9 +43,9 @@ class Analyze {
             $mod_num = array_keys($this->mode_data_tmp);
             foreach($mod_num as $item) {
                 foreach($this->mode_data_tmp[$item] as $t) {
-                    $sql = "SELECT * FROM `Package_Data` WHERE `vehicle_id`='0' and `mod_num`='$item' and `day`='$date'";
+                    $sql = "SELECT * FROM `Package_Data` WHERE `vehicle_id`='0' and `mod_num`='$item' and `day`='$this->date'";
                     $value = $this->query_is_stored($sql);
-                    $query = "INSERT INTO `Package_Data` values('','0','$item','$date','$t[0]','$t[1]','$t[2]','$t[3]','$t[4]','$t[5]')";
+                    $query = "INSERT INTO Package_Data(vehicle_id,mod_num,day,t1,t2,t3,t4,t5,t6) values('0','$item','$this->date','$t[0]','$t[1]','$t[2]','$t[3]','$t[4]','$t[5]')";
                     if($value) {
                         $t1 = $value['t1'] . ";" . $t[0];
                         $t2 = $value['t2'] . ";" . $t[1];
@@ -52,7 +53,7 @@ class Analyze {
                         $t4 = $value['t4'] . ";" . $t[3];
                         $t5 = $value['t5'] . ";" . $t[4];
                         $t6 = $value['t6'] . ";" . $t[5];
-                        $query = "UPDATE `Package_Data` SET `t1`='$t1',`t2`='$t2',`t3`='$t3',`t4`='$t4',`t5`='$t5',`t6`='$t6' WHERE `vehicle_id`='0' and `mod_num`='$item' and `day`='$date'";
+                        $query = "UPDATE `Package_Data` SET `t1`='$t1',`t2`='$t2',`t3`='$t3',`t4`='$t4',`t5`='$t5',`t6`='$t6' WHERE `vehicle_id`='0' and `mod_num`='$item' and `day`='$this->date'";
                     }
                     $result = mysqli_query($dbc, $query);
                 }
@@ -132,7 +133,10 @@ class Analyze {
                 }
                 $i = 0;
                 foreach($arr as $vol) {
-                    $this->mode_data_vol[$mod_id][$group * 3 + $i] = hexdec($arr[$i]) * 0.001;
+                    // 电压数据是2该字节，高字节在前。
+                    $byte_arr = str_split($arr[$i], 2);
+                    $true_hex_str = $byte_arr[1] . $byte_arr[0];
+                    $this->mode_data_vol[$mod_id][$group * 3 + $i] = hexdec($true_hex_str) * 0.001;
                     $i += 1;
                 }
                 break;
