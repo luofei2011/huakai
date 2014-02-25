@@ -100,7 +100,7 @@ class Batteries extends CI_Model {
     }
 
     function query_battery_in_mod($mod_num) {
-        $sql = "SELECT `battery_id` FROM `Battery_Data` WHERE `mod_num`='$mod_num'";
+        $sql = "SELECT distinct `battery_id` FROM `Battery_Data` WHERE `mod_num`='$mod_num'";
         return $this->query($sql);
     }
  

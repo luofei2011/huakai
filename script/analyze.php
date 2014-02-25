@@ -181,7 +181,8 @@ class Analyze {
         $result = [];
         foreach($arr as $item) {
             if ($item != "FE") {
-                array_push($result, hexdec($item));
+                // 数据偏移修正
+                array_push($result, hexdec($item) - 40);
             } else {
                 array_push($result, 0);
             }
